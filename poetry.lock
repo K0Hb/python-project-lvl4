@@ -29,6 +29,14 @@ python-versions = ">=3.5.0"
 unicode_backport = ["unicodedata2"]
 
 [[package]]
+name = "dj-database-url"
+version = "0.5.0"
+description = "Use Database URLs in your Django Application."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "django"
 version = "3.2.9"
 description = "A high-level Python Web framework that encourages rapid development and clean, pragmatic design."
@@ -134,7 +142,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "eaa969be57d110c23e6db8bee7f81eb6990fa6ea17a3d177c2f707da8e2cfed6"
+content-hash = "decd585fc8b64b35c4d5fbe11e2ab5d696b64d1c873876e431db4331b4802359"
 
 [metadata.files]
 asgiref = [
@@ -148,6 +156,10 @@ certifi = [
 charset-normalizer = [
     {file = "charset-normalizer-2.0.8.tar.gz", hash = "sha256:735e240d9a8506778cd7a453d97e817e536bb1fc29f4f6961ce297b9c7a917b0"},
     {file = "charset_normalizer-2.0.8-py3-none-any.whl", hash = "sha256:83fcdeb225499d6344c8f7f34684c2981270beacc32ede2e669e94f7fa544405"},
+]
+dj-database-url = [
+    {file = "dj-database-url-0.5.0.tar.gz", hash = "sha256:4aeaeb1f573c74835b0686a2b46b85990571159ffc21aa57ecd4d1e1cb334163"},
+    {file = "dj_database_url-0.5.0-py2.py3-none-any.whl", hash = "sha256:851785365761ebe4994a921b433062309eb882fedd318e1b0fcecc607ed02da9"},
 ]
 django = [
     {file = "Django-3.2.9-py3-none-any.whl", hash = "sha256:e22c9266da3eec7827737cde57694d7db801fedac938d252bf27377cec06ed1b"},
