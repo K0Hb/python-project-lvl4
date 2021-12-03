@@ -19,5 +19,8 @@ from task_manager import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index),
+    path('task-manager/', views.index),
+    path('task-manager/users', views.users),
+    path('task-manager/login', views.login),
+    path('task-manager/users/create', views.create),
 ]

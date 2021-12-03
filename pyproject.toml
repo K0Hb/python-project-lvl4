@@ -1,15 +1,14 @@
 [tool.poetry]
 name = "hexlet-code"
-version = "\\"
-description = "task manager"
+version = "0.1.0"
+description = "task-manager"
 authors = ["Вячеслав <goplit2010.konovalov@yandex.ru>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
 Django = "^3.2.9"
-heroku = "^0.1.4"
 python-dotenv = "^0.19.2"
-dj-database-url = "^0.5.0"
+heroku = "^0.1.4"
 
 [tool.poetry.dev-dependencies]
 
