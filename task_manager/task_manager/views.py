@@ -4,13 +4,13 @@ from django.shortcuts import render, redirect, reverse
 def index(request):
 
     data = {
-        'users': 'users',
-        'login': 'login',
-        'create': 'users/create',
-        'task_manager': '',
+        # 'users': 'users',
+        # 'login': 'login',
+        # 'create': 'users/create',
+        # 'task_manager': '',
         'title': 'Мененджер Задач $'
     }
-    return render(request, 'task_manager/index.html', context=data)
+    return render(request, 'task_manager/base_page.html', context=data)
 
 
 def users(request):
