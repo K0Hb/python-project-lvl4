@@ -11,3 +11,7 @@ check: selfcheck lint
 
 build: check
 	@poetry build
+
+test:
+	poetry run coverage run manage.py test
+	poetry run coverage xml
