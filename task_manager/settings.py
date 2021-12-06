@@ -129,4 +129,5 @@ STATICFILES_DIRS = [
     BASE_DIR , 'static',
 ]
 
+#HEROKU
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
