@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
 import  dj_database_url
 import os
 
@@ -22,7 +22,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 load_dotenv()
-SECRET_KEY = os.getenv('DJANGO_KEY')
+# SECRET_KEY = os.getenv('DJANGO_KEY') !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SECRET_KEY = '38r7*w6l*)=52#n(*)4p5%g51g=u*c5$n4#xh)3@f&-x3mh9*-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG')
