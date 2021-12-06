@@ -15,19 +15,23 @@
         </tr>
       </thead>
       <tbody>
-        {% for user in users %}
-          <tr>
-            <td> {{ user.id }} </td>
-            <td> {{ user.firstname }} </td>
-            <td> {{ user.lastname }} </td>
-            <td> {{ user.created_at }} </td>
-            <td>
-              <a href= {{ user.link_change }} >Изменить</a>
-              <br>
-              <a href= {{ user.link_delete }} >Удалить</a>
-            </td>
-          </tr>
-        {% endfor %}
+        {% if users %}
+          {% for user in users %}
+            <tr>
+              <td> {{ user.id }} </td>
+              <td> {{ user.first_name }} </td>
+              <td> {{ user.last_name }} </td>
+              <td> {{ user.created_at }} </td>
+              <td>
+                <a href= {{ user.link_change }} >Изменить</a>
+                <br>
+                <a href= {{ user.link_delete }} >Удалить</a>
+              </td>
+            </tr>
+          {% endfor %}
+        {% else %}
+          <p>Пользователей нет</p>
+        {% endif %}
 
       </tbody>
     </table>
