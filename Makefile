@@ -5,7 +5,7 @@ lint:
 	@poetry run flake8
 
 selfcheck:
-	poetry check
+	@poetry check
 
 check: selfcheck lint
 
@@ -13,5 +13,8 @@ build: check
 	@poetry build
 
 test:
-	poetry run coverage run manage.py test
-	poetry run coverage xml
+	@poetry run coverage run manage.py test
+	@poetry run coverage xml
+
+install:
+	@poetry install
