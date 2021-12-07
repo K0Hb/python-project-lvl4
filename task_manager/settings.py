@@ -29,7 +29,7 @@ SECRET_KEY = '38r7*w6l*)=52#n(*)4p5%g51g=u*c5$n4#xh)3@f&-x3mh9*-'
 # DEBUG = os.getenv('DEBUG')
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
