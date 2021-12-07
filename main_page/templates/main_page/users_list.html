@@ -1,0 +1,39 @@
+{% extends 'main_page/main_template.html' %}
+
+{% block title %}
+{% endblock %}
+
+
+{% block content %}
+<div class="container wrapper flex-grow-1">
+    <h1 class="my-4 h2">
+    Пользователи
+    </h1>
+    <table class="table table-striped">
+    <thead>
+        <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Имя пользователя</th>
+        <th scope="col">Полое имя</th>
+        <th scope="col">Дата создания</th>
+        <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users_list %}
+            <tr>
+            <th scope="row">{{ user.pk }}</th>
+            <td>{{ user.username }}</td>
+            <td>{{ user.first_name }} {{ user.last_name }}</td>
+            <td>{{ user.date_joined }}</td>
+            <td>
+                {% if user.pk == request.user.pk %}
+
+                {% endif %}
+            </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+</div>
+{% endblock %}
