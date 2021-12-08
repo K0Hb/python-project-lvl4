@@ -6,7 +6,7 @@ from django.views.generic.edit import CreateView
 from django.utils.translation import gettext as _
 
 class HomePageView(TemplateView):
-    extra_context = {'title': _('Главная страница')}
+    # extra_context = {'title': _('Главная страница')}
     template_name = 'main_page/home_page.html'
 
 class UsersListView(ListView):
