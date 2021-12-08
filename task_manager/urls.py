@@ -15,15 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from task_manager import views
-from django.conf import settings
-from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('', include('main_page.urls')),
     path('admin/', admin.site.urls),
-    path('task-manager/', views.index, name='start_page'),
-    path('task-manager/users', views.users, name='users_table'),
-    path('task-manager/login', views.login, name='login'),
-    path('task-manager/users/create', views.create, name='resgistration'),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]

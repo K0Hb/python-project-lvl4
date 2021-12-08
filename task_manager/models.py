@@ -7,5 +7,10 @@ class Users(models.Model):
     link_change = models.CharField(max_length = 30)
     link_delete = models.CharField(max_length = 30)
 
+    class Meta:
+        db_table = 'Users_base'
+        verbose_name = 'User'
+        verbose_name_plural = 'Users'
+
     def __str__(self):
         return self.last_name
