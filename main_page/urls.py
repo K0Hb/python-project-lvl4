@@ -3,6 +3,7 @@ from .views import HomePageView, UsersListView, MyProjectLoginView, RegisterUser
 
 
 urlpatterns = [
+    # path('', index, name='home'),
     path('', HomePageView.as_view(), name='home'),
     path('users/', UsersListView.as_view(), name='users'),
     path('login/', MyProjectLoginView.as_view(), name='login_page'),
