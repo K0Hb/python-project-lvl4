@@ -11,14 +11,11 @@ class HomePageView(TemplateView):
 
 class UsersListView(ListView):
     model = User
-    extra_context = {'title': _('Список пользователей')}
     template_name = 'main_page/users_list.html'
     context_object_name = 'users_list'
 
 class MyProjectLoginView(LoginView):
-    extra_context = {'title': _('Аутентификация')}
     template_name = 'main_page/login.html'
 
 class RegisterUserView(CreateView):
-    extra_context = {'title': _('Регистрация')}
     template_name = 'main_page/users_create.html'
