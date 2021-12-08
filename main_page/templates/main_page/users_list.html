@@ -21,6 +21,7 @@
             </tr>
         </thead>
         <tbody>
+        {% if user_list %}
             {% for user in users_list %}
                 <tr>
                 <th scope="row">{{ user.pk }}</th>
@@ -34,6 +35,9 @@
                 </td>
                 </tr>
             {% endfor %}
+        {% else %}
+            <p>Список пользователей пустой</p>
+        {% endif %}
         </tbody>
         </table>
     </div>
