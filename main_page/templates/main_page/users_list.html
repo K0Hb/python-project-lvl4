@@ -2,7 +2,7 @@
 {% load i18n %}
 {% block title %}
     <head>
-         <title>{% translate "Список пользователей" %}</title>
+         <title>{% trans "Список пользователей" %}</title>
     </head>
 {% endblock %}
 {% block content %}
@@ -14,14 +14,14 @@
         <thead>
             <tr>
             <th scope="col">ID</th>
-            <th scope="col">{% translate "Имя пользователя" %}</th>
-            <th scope="col">{% translate "Полное имя" %}</th>
-            <th scope="col">{% translate "Дата создания" %}</th>
+            <th scope="col">{% trans "Имя пользователя" %}</th>
+            <th scope="col">{% trans "Полное имя" %}</th>
+            <th scope="col">{% trans "Дата создания" %}</th>
             <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
-        {% if user_list %}
+        {% if users_list %}
             {% for user in users_list %}
                 <tr>
                 <th scope="row">{{ user.pk }}</th>
@@ -30,13 +30,14 @@
                 <td>{{ user.date_joined }}</td>
                 <td>
                     {% if user.pk == request.user.pk %}
-
+                        <a href="{% url 'update_user' user.pk %}">{% trans "Изменить" %}</a> <br>
+                        <a href="{% url 'delete_user' user.pk %}">{% trans "Удалить" %}</a>
                     {% endif %}
                 </td>
                 </tr>
             {% endfor %}
         {% else %}
-            <p>{% translate "Список пользователей пустой" %}</p>
+            <p>{% trans "Список пользователей пустой" %}</p>
         {% endif %}
         </tbody>
         </table>

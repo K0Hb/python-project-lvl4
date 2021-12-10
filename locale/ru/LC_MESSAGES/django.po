@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-08 18:54+0300\n"
+"POT-Creation-Date: 2021-12-08 20:29+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,54 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: main_page/templates/main_page/home_page.html:5
+msgid "Домашняя страница"
+msgstr ""
+
+#: main_page/templates/main_page/login.html:5
+msgid "Аутентификация"
+msgstr ""
+
+#: main_page/templates/main_page/main_template.html:11
+msgid "Мененджер задач"
+msgstr ""
+
+#: main_page/templates/main_page/main_template.html:18
+msgid "Пользователи"
+msgstr ""
+
+#: main_page/templates/main_page/main_template.html:23
+msgid "Вход"
+msgstr ""
+
+#: main_page/templates/main_page/main_template.html:26
+msgid "Регистрация"
+msgstr ""
+
+#: main_page/templates/main_page/users_create.html:5
+msgid "Регистрация пользователя"
+msgstr ""
+
+#: main_page/templates/main_page/users_list.html:5
+msgid "Список пользователей"
+msgstr ""
+
+#: main_page/templates/main_page/users_list.html:17
+msgid "Имя пользователя"
+msgstr ""
+
+#: main_page/templates/main_page/users_list.html:18
+msgid "Полное имя"
+msgstr ""
+
+#: main_page/templates/main_page/users_list.html:19
+msgid "Дата создания"
+msgstr ""
+
+#: main_page/templates/main_page/users_list.html:39
+msgid "Список пользователей пустой"
+msgstr ""
 
 #: task_manager/settings.py:120
 msgid "English"
