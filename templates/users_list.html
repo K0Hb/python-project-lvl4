@@ -1,39 +1,36 @@
-{% extends 'main_page/main_template.html' %}
+{% extends 'main_template.html' %}
 {% load i18n %}
 {% block title %}
     <head>
          <title>{% trans "Список пользователей" %}</title>
     </head>
 {% endblock %}
+{% block heading %}
+    <h1>{% trans "Список пользователей" %}</h1>
+{% endblock %}
 {% block content %}
     <div class="container wrapper flex-grow-1">
-        <h1 class="my-4 h2">
-        Пользователи
-        </h1>
+      <h1 class="my-4">
+        {% trans "Пользователи" %}
+      </h1>
         <table class="table table-striped">
         <thead>
             <tr>
-            <th scope="col">ID</th>
-            <th scope="col">{% trans "Имя пользователя" %}</th>
-            <th scope="col">{% trans "Полное имя" %}</th>
-            <th scope="col">{% trans "Дата создания" %}</th>
-            <th scope="col"></th>
+            <th>ID</th>
+            <th>{% trans "Пользователь" %}</th>
+            <th>{% trans "Полное имя" %}</th>
+            <th>{% trans "Дата создания" %}</th>
+            <th></th>
             </tr>
         </thead>
         <tbody>
         {% if users_list %}
             {% for user in users_list %}
                 <tr>
-                <th scope="row">{{ user.pk }}</th>
+                <th>{{ user.pk }}</th>
                 <td>{{ user.username }}</td>
                 <td>{{ user.first_name }} {{ user.last_name }}</td>
                 <td>{{ user.date_joined }}</td>
-                <td>
-                    {% if user.pk == request.user.pk %}
-                        <a href="{% url 'update_user' user.pk %}">{% trans "Изменить" %}</a> <br>
-                        <a href="{% url 'delete_user' user.pk %}">{% trans "Удалить" %}</a>
-                    {% endif %}
-                </td>
                 </tr>
             {% endfor %}
         {% else %}

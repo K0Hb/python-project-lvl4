@@ -1,0 +1,51 @@
+{% load static %}
+    {% load bootstrap4 %}
+    {# Load CSS and JavaScript #}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+{% load i18n %}
+{% block title %}
+{% endblock %}
+<body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+      <a class="navbar-brand" href="{% url 'home' %}"}>{% trans "Мененджер задач" %}</a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarToggleExternalContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'users_page' %}">{% trans "Пользователи" %}</a>
+          </li>
+            {% if request.user.is_authenticated %}
+                <p>тут будут теги</p>
+            {% endif %}
+        </ul>
+        <ul class="navbar-nav">
+                {% if request.user.is_authenticated %}
+                <li class="nav-link">
+                    <p class="nav-link">{% trans 'Пользователь' %}: {{ user.get_username }}</p>
+                </li>
+                {% if request.user.is_authenticated and request.user.is_staff %}
+                <li class="nav-link">
+                    <a class="btn nav-link" href="/admin">{% trans 'Админка' %}</a>
+                </li>
+                {% endif %}
+                <li class="btn nav-link">
+                    <a class="nav-link" href="{% url 'logout' %}">{% trans 'Выход' %}</a>
+                </li>
+
+                {% else %}
+                <li class="nav-link">
+                    <a class="nav-link" href="{% url 'login' %}">{% trans "Вход" %}</a>
+                </li>
+                <li class="nav-link">
+                    <a class="nav-link" href="{% url 'sign_up_url' %}">{% trans "Регистрация" %}</a>
+                </li>
+                {% endif %}
+        </ul>
+      </div>
+    </nav>
+{% block content %}
+{% endblock %}
+</body></html>
