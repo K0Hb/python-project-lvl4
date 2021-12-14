@@ -1,6 +1,6 @@
 env:
   global:
-    - CC_TEST_REPORTER_ID= ${{ secrets.NEW_TOKEN }}
+    - CC_TEST_REPORTER_ID= ${{ secrets.NEW_NOKEN }}
 
 language: python
 python: 3.8
