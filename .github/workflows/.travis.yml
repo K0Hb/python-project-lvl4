@@ -33,7 +33,7 @@ jobs:
     - name: Coverage report for CodeClimate
       uses: paambaati/codeclimate-action@v2.7.5
       env:
-        CC_TEST_REPORTER_ID: ${{ secrets.NEW_NOKEN }}
+        CC_TEST_REPORTER_ID: ${{ secrets.TOKEN_4_PROJECT }}
       with:
         coverageCommand: make coverage
       after_script:
