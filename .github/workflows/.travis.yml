@@ -21,8 +21,8 @@ jobs:
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v2.7.5
         env:
-          CC_TEST_REPORTER_ID: 8bcb3884e9b5fff8af96a2dfdb94c8d0d817186c
+          CC_TEST_REPORTER_ID: ${{ secrets.TOKEN_DJANGO }}
         with:
           coverageCommand: make test
       - name: Build
-        run: ./cc-test-reporter after-build --exit-code ${{ secrets.TOKEN_DJANGO }}
+        run: ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
