@@ -24,5 +24,3 @@ jobs:
           CC_TEST_REPORTER_ID: ${{ secrets.TOKEN_DJANGO }}
         with:
           coverageCommand: make test
-      - name: Build
-        run: ./cc-test-reporter after-build --exit-code ${{ secrets.TOKEN_DJANGO }}
