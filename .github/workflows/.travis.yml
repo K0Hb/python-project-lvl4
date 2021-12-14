@@ -23,4 +23,6 @@ jobs:
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.TOKEN_4_PROJECT }}
         with:
-          coverageCommand: make test-coverage
+          coverageCommand: make test
+after_script:
+  - ./cc-test-reporter after-build --exit-code ${{ secrets.TOKEN_4_PROJECT }}
