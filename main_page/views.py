@@ -11,12 +11,15 @@ class SignUpView(CreateView):
     success_url = reverse_lazy('login')
     template_name = 'registration/signup.html'
 
+
 class HomePageView(TemplateView):
     template_name = 'home_page.html'
+
 
 class UsersListView(ListView):
     model = User
     template_name = 'users_list.html'
     context_object_name = 'users_list'
+
     def get_queryset(self):
         return User.objects.all()

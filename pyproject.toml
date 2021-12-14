@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "hexlet-code"
+name = "task_manager"
 version = "0.1.0"
 description = "task-manager"
 authors = ["Вячеслав <goplit2010.konovalov@yandex.ru>"]
