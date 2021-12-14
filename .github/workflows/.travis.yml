@@ -1,26 +1,26 @@
-env:
-  global:
-    - CC_TEST_REPORTER_ID=${{ secrets.TOKEN_4_PROJECT }}
+name: linter_and_test
 
-language: python
-python: 3.8
+on:
+  push:
+    branches:
+      - '**'
+    tags:
+      - '**'
 
-before_install:
-  # make depends on poetry
-  - pip install poetry
-
-install:
-  - make install
-
-before_script:
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
-
-script:
-  - export SECRET_KEY=MY_SECRET_KEY
-  - make check
-  - make test
-
-after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - name: updating dpendencies and do linter check
+        run: |
+          pip install poetry
+          make install
+          make lint
+      - name: Test & publish code coverage
+        uses: paambaati/codeclimate-action@v2.7.5
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.TOKEN_4_PROJECT }}
+        with:
+          coverageCommand: make test-coverage
