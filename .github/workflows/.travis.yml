@@ -21,7 +21,7 @@ jobs:
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v2.7.5
         env:
-          CC_TEST_REPORTER_ID: ${{ secrets.TOKEN_4_PROJECT }}
+          CC_TEST_REPORTER_ID: ${{ secrets.TOKEN_DJANGO }}
         with:
           coverageCommand: make test
       - name: Build
