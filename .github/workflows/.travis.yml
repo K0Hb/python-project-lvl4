@@ -25,4 +25,4 @@ jobs:
         with:
           coverageCommand: make test
       - name: Build
-        run: ./cc-test-reporter after-build --exit-code ${{ secrets.TOKEN_4_PROJECT }}
+        run: ./cc-test-reporter after-build --exit-code ${{ secrets.TOKEN_DJANGO }}
