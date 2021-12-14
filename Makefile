@@ -18,3 +18,7 @@ test:
 
 install:
 	@poetry install
+
+test:
+	poetry run coverage run manage.py test
+	poetry run coverage xml
