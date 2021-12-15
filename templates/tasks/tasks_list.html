@@ -36,9 +36,9 @@
             <td>{{ task.executor }}</td>
             <td>{{ task.created_at }}</td>
             <td>
-                {% if user.pk == request.user.pk %}
-                    <a href="#">{% trans "Изменить" %}</a> <br>
-                    <a href="#">{% trans "Удалить" %}</a>
+                    <a href="{% url 'update_task' task.id %}">{% trans "Изменить" %}</a> <br>
+                {% if task.creator_id == request.user.id %}
+                    <a href="{% url 'delete_task' task.id %}">{% trans "Удалить" %}</a>
                 {% endif %}
             </td>
             </tr>

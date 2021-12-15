@@ -1,10 +1,10 @@
 from django.db import models
-from django.contrib.auth.models import User
 from task_manager import settings
 from status.models import Status
 from tags.models import Tags
 
 User = settings.AUTH_USER_MODEL
+
 
 class Task(models.Model):
     name = models.CharField(max_length=75)
@@ -20,7 +20,7 @@ class Task(models.Model):
         blank=True,
         null=True,
         related_name='status',
-        on_delete=models.PROTECT,
+        on_delete=models.SET_NULL,
         verbose_name='Status'
     )
     creator = models.ForeignKey(
@@ -40,8 +40,6 @@ class Task(models.Model):
 
     tags = models.ManyToManyField(
         Tags,
-        # through='RelatedModel',
-        # through_fields=('task', 'tag'),
         blank=True,
         verbose_name='Tags',
         related_name='Tags'
