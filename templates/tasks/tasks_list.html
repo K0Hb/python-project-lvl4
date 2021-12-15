@@ -1,0 +1,49 @@
+{% extends 'main_template.html' %}
+{% load i18n %}
+
+{% block title %}
+    <head>
+         <title>{% trans "Список задач" %}</title>
+    </head>
+{% endblock %}
+
+
+{% block content %}
+<div class="container wrapper flex-grow-1">
+    <h1 class="my-4 h2">
+        {% trans "Задачи" %}
+    </h1>
+    <a href='{% url "create_task" %}'>{% trans "Создать задачу" %}</a>
+    <table class="table table-striped mt-2">
+    <thead>
+        <tr>
+        <th scope="col">ID</th>
+        <th scope="col">{% trans "Имя" %}</th>
+        <th scope="col">{% trans "Статус" %}</th>
+        <th scope="col">{% trans "Создатель" %}</th>
+        <th scope="col">{% trans "Исполнитель" %}</th>
+        <th scope="col">{% trans "Дата создания" %}</th>
+        <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in tasks_list %}
+            <tr>
+            <th scope="row">{{ task.pk }}</th>
+            <td>{{ task.name }}</td>
+            <td>{{ task.status }}</td>
+            <td>{{ task.creator }}</td>
+            <td>{{ task.executor }}</td>
+            <td>{{ task.created_at }}</td>
+            <td>
+                {% if user.pk == request.user.pk %}
+                    <a href="#">{% trans "Изменить" %}</a> <br>
+                    <a href="#">{% trans "Удалить" %}</a>
+                {% endif %}
+            </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+</div>
+{% endblock %}

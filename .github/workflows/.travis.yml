@@ -24,3 +24,8 @@ jobs:
           CC_TEST_REPORTER_ID: ${{ secrets.TOKEN_DJANGO }}
         with:
           coverageCommand: make test
+      - name: Deploy heroku
+        deploy:
+          provider: heroku
+          api_key:
+            secure: "YOUR ENCRYPTED API KEY"

@@ -18,7 +18,9 @@
             <a class="nav-link" href="{% url 'users_page' %}">{% trans "Пользователи" %}</a>
           </li>
             {% if request.user.is_authenticated %}
-                <a class="p-2 text-dark" href="{% url 'statuses' %}">Статусы</a>
+                <a class="p-2 text-dark" href="{% url 'statuses' %}">{% trans 'Статусы' %}</a>
+                <a class="p-2 text-dark" href="{% url 'tasks' %}">{% trans 'Задачи' %}</a>
+                <a class="p-2 text-dark" href="#">{% trans 'Метки' %}</a>
             {% endif %}
         </ul>
         <ul class="navbar-nav">
