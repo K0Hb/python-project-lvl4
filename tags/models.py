@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Tags(models.Model):
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=20)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta(object):

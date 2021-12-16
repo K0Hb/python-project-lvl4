@@ -20,7 +20,7 @@ class Task(models.Model):
         blank=True,
         null=True,
         related_name='status',
-        on_delete=models.SET_NULL,
+        on_delete=models.PROTECT,
         verbose_name='Status'
     )
     creator = models.ForeignKey(
@@ -42,7 +42,8 @@ class Task(models.Model):
         Tags,
         blank=True,
         verbose_name='Tags',
-        related_name='Tags'
+        related_name='Tags',
+        # on_delete=models.PROTECT
     )
 
     class Meta():

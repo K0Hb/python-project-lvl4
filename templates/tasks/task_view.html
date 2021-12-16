@@ -1,0 +1,59 @@
+{% extends 'main_template.html' %}
+{% load i18n %}
+{% block title %}
+    <head>
+         <title>{% trans "Просмотр задачи" %}</title>
+    </head>
+{% endblock %}
+{% block content %}
+<div class="card">
+  <div class="card-header bg-secondary text-white">
+    <h2>{% trans "Просмотр задачи" %}: {{ task.name }}</h2>
+  </div>
+  <div class="card-body bg-light">
+    <p></p>
+    <hr>
+    <div class="container">
+      <div class="row p-1">
+        <div class="col">{% trans "Автор" %}</div>
+        <div class="col">{{ task.creator }}</div>
+      </div>
+      <div class="row p-1">
+        <div class="col">{% trans "Исполнитель" %}</div>
+        <div class="col">{{ task.executor }}</div>
+      </div>
+      <div class="row p-1">
+        <div class="col">{% trans "Статус" %}</div>
+        <div class="col">{{ task.status }}</div>
+      </div>
+      <div class="row p-1">
+        <div class="col">{% trans "Дата создания" %}</div>
+        <div class="col">{{ task.created_at }}</div>
+      </div>
+      <div class="row p-1">
+        <div class="col">{% trans "Описание" %}</div>
+        <div class="col">{{ task.description }}</div>
+      </div>
+      <div class="row p-1">
+        <div class="col">
+          <h6>{% trans "Метки" %}:</h6>
+          {% if tags_list != 'tags.Tags.None' %}
+          <ul>
+              <li>{{ tags_list }}</li>
+          </ul>
+          {% else %}
+            <p>{% trans "Список меток пустой" %}</p>
+          {% endif %}
+        </div>
+      </div>
+      <div class="row p-1">
+        <div class="col">
+          <a href="{% url 'update_task' task.id %}">{% trans "Изменить" %}</a>
+          <br>
+          <a href="{% url 'delete_task' task.id %}">{% trans "удалить" %}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
