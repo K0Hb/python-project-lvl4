@@ -1,5 +1,6 @@
 {% extends 'main_template.html' %}
 {% load i18n %}
+
 {% block title %}
     <head>
          <title>{% trans "Список задач" %}</title>
@@ -20,20 +21,21 @@
             {{ executor }}
           {% endfor %}
     </select></div></div>
-          <div class="form-group"><label for="id_label">Метка</label><div class="mr-3 ml-2"><select name="tags" class="form-control" title="" id="id_label">
+          <div class="form-group"><label for="id_executor">Создатель</label><div class="mr-3 ml-2"><select name="executor" class="form-control" title="" id="id_creator">
+          {% for creator in filter.form.creator %}
+            {{ creator }}
+          {% endfor %}
+
+    </select></div></div>
+          <div class="form-group"><label for="id_label">Метка</label><div class="mr-3 ml-2"><select name="label" class="form-control" title="" id="id_label">
           {% for tag in filter.form.tags %}
             {{ tag }}
           {% endfor %}
     </select></div></div>
-          <div class="form-group"><div class="mr-3"><div class="form-check">
-              <input type="checkbox" name="self_tasks" class="form-check-input" id="id_self_tasks">
-                    <label class="form-check-label" for="id_self_tasks"{% if filter.form.creator == request.user.id %}
-                                                                                    {{ creator }}
-                                                                                {% endif %}
-                    >Только свои задачи</label></div></div></div>
+          <div class="form-group"><div class="mr-3"><div class="form-check"><input type="checkbox" name="self_tasks" class="form-check-input" id="id_self_tasks"><label class="form-check-label" for="id_self_tasks">Только свои задачи</label></div></div></div>
+            <a href="#" class="form-group">Только свои задачи</a>
           <div class="form-group">
-            <button class="nav-link" type="submit">Показать</button>
-            <a href="{% url 'tasks' %}" class="nav-link">Сброс</a>
+            <button class="btn btn-primary" type="submit">Показать</button>
           </div>
     </form>
   </div>
@@ -61,10 +63,9 @@
                         <td>{{ obj.creator }}</td>
                         <td>{{ obj.executor }}</td>
                         <td>{{ obj.created_at }}</td>
-                        <td>{{ obj.tags.all|join:", "|truncatewords:4 }}</td>
                         <td>
                                 <a href="{% url 'update_task' obj.id %}">{% trans "Изменить" %}</a> <br>
-                            {% if obj.creator_id == request.user.id %}
+                            {% if task.creator_id == request.user.id %}
                                 <a href="{% url 'delete_task' obj.id %}">{% trans "Удалить" %}</a>
                             {% endif %}
                         </td>

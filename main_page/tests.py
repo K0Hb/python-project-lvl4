@@ -46,8 +46,6 @@ class TaskTest(TestCase):
         task_status.name = 'test_name'
         name = task_status.__str__()
         self.assertEquals(name, 'test_name')
-        # task_status.delete()
-        # self.assertEqual(Status.objects.count(), 0)
 
     def test_task(self):
         task = Task.objects.get(id=1)
@@ -58,10 +56,8 @@ class TaskTest(TestCase):
         name = task.__str__()
         self.assertEquals(name, 'new_name')
         assert task.description == 'Faster!'
-        task.description = 'blablabla'
-        assert task.description == 'blablabla'
-        # task.delete()
-        # self.assertEqual(Task.objects.count(), 0)
+        task.description = 'text'
+        assert task.description == 'text'
 
     def test_tag(self):
         tag = Tags.objects.get(id=1)

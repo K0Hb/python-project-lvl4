@@ -20,19 +20,19 @@ class Task(models.Model):
         blank=True,
         null=True,
         related_name='status',
-        on_delete=models.PROTECT,
+        on_delete=models.CASCADE,
         verbose_name='Status'
     )
     creator = models.ForeignKey(
         User,
         related_name='creator',
-        on_delete=models.PROTECT,
+        on_delete=models.CASCADE,
         verbose_name='Creator'
     )
     executor = models.ForeignKey(
         User,
         verbose_name='Executor',
-        on_delete=models.PROTECT,
+        on_delete=models.CASCADE,
         null=True,
         blank=True,
         related_name='executor'
@@ -43,7 +43,6 @@ class Task(models.Model):
         blank=True,
         verbose_name='Tags',
         related_name='Tags',
-        # on_delete=models.PROTECT
     )
 
     class Meta():

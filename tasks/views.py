@@ -2,19 +2,12 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.views import View
 from django.views.generic.list import ListView
+from tasks.filters import TaskFilter
 from tasks.models import Task
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from tasks.forms import RegisterTaskForm
-
-
-class TasksListView(LoginRequiredMixin, ListView):
-    model = Task
-    template_name = 'tasks/tasks_list.html'
-    context_object_name = 'tasks_list'
-    login_url = reverse_lazy('login_page')
-    redirect_field_name = 'redirect_to'
 
 
 class CreateTaskView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
@@ -54,3 +47,14 @@ class TaskView(View):
         model = Task.objects.get(id=pk)
         return render(request, 'tasks/task_view.html',
                       context={'task': model, 'tags_list': model.tags})
+
+
+class TasksListView(LoginRequiredMixin, ListView):
+    login_url = '/login/'
+    model = Task
+    template_name = 'tasks/tasks_list.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filter'] = TaskFilter(self.request.GET)
+        return context

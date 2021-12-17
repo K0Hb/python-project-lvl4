@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.admin',
     'django.contrib.auth',
+    'django_filters',
     'task_manager',
     'bootstrap4',
     'main_page',
