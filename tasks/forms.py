@@ -18,4 +18,4 @@ class RegisterTaskForm(ModelForm):
 class TaskFilter(django_filters.FilterSet):
     class Meta:
         model = Task
-        fields = ['creator', 'status', 'tags']
+        fields = ['creator', 'status', 'tags', 'executor']

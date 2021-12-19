@@ -1,79 +1,54 @@
 {% extends 'main_template.html' %}
 {% load i18n %}
-
 {% block title %}
     <head>
          <title>{% trans "Список задач" %}</title>
     </head>
 {% endblock %}
-{% block content %}
-<a class="nav-link" href="{% url 'create_task' %}">Создать задачу</a>
-<div class="card mb-3">
-  <div class="card-body bg-light">
-    <form class="form-inline center" method="get">
-      <div class="form-group"><label for="id_status">Статус</label><div class="ml-2 mr-3"><select name="status" class="form-control" title="" id="id_status">
-          {% for status in filter.form.status %}
-            {{ status }}
-          {% endfor %}
-    </select></div></div>
-          <div class="form-group"><label for="id_executor">Исполнитель</label><div class="mr-3 ml-2"><select name="executor" class="form-control" title="" id="id_executor">
-          {% for executor in filter.form.executor %}
-            {{ executor }}
-          {% endfor %}
-    </select></div></div>
-          <div class="form-group"><label for="id_executor">Создатель</label><div class="mr-3 ml-2"><select name="executor" class="form-control" title="" id="id_creator">
-          {% for creator in filter.form.creator %}
-            {{ creator }}
-          {% endfor %}
+{% block welcome %}
+<h1>FILTER</h1>
 
-    </select></div></div>
-          <div class="form-group"><label for="id_label">Метка</label><div class="mr-3 ml-2"><select name="label" class="form-control" title="" id="id_label">
-          {% for tag in filter.form.tags %}
-            {{ tag }}
-          {% endfor %}
-    </select></div></div>
-          <div class="form-group"><div class="mr-3"><div class="form-check"><input type="checkbox" name="self_tasks" class="form-check-input" id="id_self_tasks"><label class="form-check-label" for="id_self_tasks">Только свои задачи</label></div></div></div>
-            <a href="#" class="form-group">Только свои задачи</a>
-          <div class="form-group">
-            <button class="btn btn-primary" type="submit">Показать</button>
-          </div>
-    </form>
-  </div>
-</div>
-        <div class="row">
-            <div class="col-sm">
-                <table class="table table-striped mt-2">
-                <thead>
-                    <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">{% trans "Имя" %}</th>
-                    <th scope="col">{% trans "Статус" %}</th>
-                    <th scope="col">{% trans "Создатель" %}</th>
-                    <th scope="col">{% trans "Исполнитель" %}</th>
-                    <th scope="col">{% trans "Дата создания" %}</th>
-                    <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for obj in filter.qs %}
-                        <tr>
-                        <th scope="row">{{ obj.pk }}</th>
-                        <td><a href="{% url 'view_task' obj.id %}">{{ obj.name }}</a></td>
-                        <td>{{ obj.status }}</td>
-                        <td>{{ obj.creator }}</td>
-                        <td>{{ obj.executor }}</td>
-                        <td>{{ obj.created_at }}</td>
-                        <td>
-                                <a href="{% url 'update_task' obj.id %}">{% trans "Изменить" %}</a> <br>
-                            {% if task.creator_id == request.user.id %}
-                                <a href="{% url 'delete_task' obj.id %}">{% trans "Удалить" %}</a>
-                            {% endif %}
-                        </td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+	<form method="get" class="form">
+		{% csrf_token %}
+		{% bootstrap_form filter.form %}
+		{% if user.is_authenticated %}
+
+		<div class="form-check">
+			<label class="form-check-label" for="id_self_tasks">Self tasks</label>
+			<input type="checkbox" name="self_tasks" id="id_self_tasks">
+		</div>
+		{% endif %}
+		{% bootstrap_button "Показать" button_class="btn-success" %}
+
+		<a href="{% url 'tasks:tasks_list' %}" class="btn btn-success">
+			Clear filters
+		</a>
+	</form>
+
+		<h1>Tasks</h1>
+		<table border="2" align="center" class="h-auto mb-4" cellpadding="7">
+			<tr>
+				<th>{% translate "Name" %}</th>
+				<th>{% translate "Status" %}</th>
+				<th>{% translate "Creator" %}</th>
+				<th>{% translate "Executor" %}</th>
+				<th>{% translate "Labels" %}</th>
+			</tr>
+			{% for task in filter.qs %}
+				<tr>
+					<td><a href={% url 'tasks:task' task.id %}>{{ task.name }}</a></td>
+					<td><a class="badge badge-danger badge-pill p-2" href={% url 'tasks:task' task.id %}>{{ task.status }}</a></td>
+					<td><a href={% url 'tasks:task' task.id %}>{{ task.creator }}</a></td>
+					<td><a href={% url 'tasks:task' task.id %}>{{ task.executor.first_name }} {{ task.executor.last_name }}</a></td>
+					<td>
+					{% for tag in task.labels.all %}
+						<a class="badge badge-info p-2" href={% url 'tasks:task' task.id %}>"{{ tag }}"</a>
+					{% endfor %}
+					</td>
+				</tr>
+			{% endfor %}
+		</table>
+	<br>
+	<a class="btn btn-primary" href={% url 'tasks:create_task' %}>{% translate "Create new task" %}</a>
+	</p>
 {% endblock %}
