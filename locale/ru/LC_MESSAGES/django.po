@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-08 20:29+0300\n"
+"POT-Creation-Date: 2021-12-19 14:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,58 +20,243 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: main_page/templates/main_page/home_page.html:5
-msgid "Домашняя страница"
-msgstr ""
-
-#: main_page/templates/main_page/login.html:5
-msgid "Аутентификация"
-msgstr ""
-
-#: main_page/templates/main_page/main_template.html:11
-msgid "Мененджер задач"
-msgstr ""
-
-#: main_page/templates/main_page/main_template.html:18
-msgid "Пользователи"
-msgstr ""
-
-#: main_page/templates/main_page/main_template.html:23
-msgid "Вход"
-msgstr ""
-
-#: main_page/templates/main_page/main_template.html:26
-msgid "Регистрация"
-msgstr ""
-
-#: main_page/templates/main_page/users_create.html:5
-msgid "Регистрация пользователя"
-msgstr ""
-
-#: main_page/templates/main_page/users_list.html:5
-msgid "Список пользователей"
-msgstr ""
-
-#: main_page/templates/main_page/users_list.html:17
-msgid "Имя пользователя"
-msgstr ""
-
-#: main_page/templates/main_page/users_list.html:18
-msgid "Полное имя"
-msgstr ""
-
-#: main_page/templates/main_page/users_list.html:19
-msgid "Дата создания"
-msgstr ""
-
-#: main_page/templates/main_page/users_list.html:39
-msgid "Список пользователей пустой"
-msgstr ""
-
 #: task_manager/settings.py:120
-msgid "English"
-msgstr ""
+msgid "Английский"
+msgstr "English"
 
 #: task_manager/settings.py:121
-msgid "Russian"
-msgstr ""
+msgid "Русский"
+msgstr "Russian"
+
+#: templates/home_page.html:5
+msgid "Домашняя страница"
+msgstr "Home page"
+
+#: templates/main_template.html:11
+msgid "Мененджер задач"
+msgstr "Task manager"
+
+#: templates/main_template.html:18 templates/users_list.html:14
+msgid "Пользователи"
+msgstr "Users"
+
+#: templates/main_template.html:21 templates/status/statuses_list.html:14
+msgid "Статусы"
+msgstr "Statuses"
+
+#: templates/main_template.html:22
+msgid "Задачи"
+msgstr "Tasks"
+
+#: templates/main_template.html:23 templates/tags/tags_list.html:14
+#: templates/tasks/task_view.html:39
+msgid "Метки"
+msgstr "Labels"
+
+#: templates/main_template.html:29 templates/users_list.html:20
+msgid "Пользователь"
+msgstr "User"
+
+#: templates/main_template.html:33
+msgid "Админка"
+msgstr "Admin-page"
+
+#: templates/main_template.html:37
+msgid "Выход"
+msgstr "Log out"
+
+#: templates/main_template.html:42
+msgid "Вход"
+msgstr "Log in"
+
+#: templates/main_template.html:45 templates/registration/signup.html:5
+#: templates/registration/signup.html:12
+msgid "Регистрация"
+msgstr "Registration"
+
+#: templates/registration/login.html:5
+msgid "Авторизация"
+msgstr "Authorization"
+
+#: templates/registration/login.html:10
+msgid ""
+"Ваше имя пользователя и пароль не совпадают. Пожалуйста, попробуйте снова."
+msgstr "Your username and password don't match. Please try again."
+
+#: templates/registration/login.html:17
+msgid "Пожалуйста, войдите, чтобы увидеть эту страницу."
+msgstr "Пожалуйста, войдите, чтобы увидеть эту страницу."
+
+#: templates/registration/login.html:24
+#, fuzzy
+#| msgid "Авторизация"
+msgid "Авторизоваться"
+msgstr "Authorization"
+
+#: templates/status/status_update.html:6
+msgid "Редактирование статуса"
+msgstr "Editing the status"
+
+#: templates/status/status_update.html:13
+msgid "Изменение статуса"
+msgstr "Status change"
+
+#: templates/status/status_update.html:19
+#: templates/status/statuses_list.html:34 templates/tags/tag_update.html:19
+#: templates/tags/tags_list.html:34 templates/tasks/task_update.html:19
+#: templates/tasks/task_view.html:53 templates/tasks/tasks_list.html:66
+msgid "Изменить"
+msgstr "Change"
+
+#: templates/status/statuses_create.html:6
+msgid "Добалвение статуса"
+msgstr "Add status"
+
+#: templates/status/statuses_create.html:15
+#: templates/status/statuses_list.html:16
+msgid "Создать статус"
+msgstr "Create status"
+
+#: templates/status/statuses_create.html:21 templates/tags/tag_create.html:21
+#: templates/tasks/task_create.html:21
+msgid "Создать"
+msgstr "Create"
+
+#: templates/status/statuses_delete.html:6
+#: templates/status/statuses_delete.html:12
+msgid "Удалине статуса"
+msgstr "Deleting a status"
+
+#: templates/status/statuses_delete.html:17 templates/tags/tag_delete.html:17
+#: templates/tasks/task_delete.html:17
+msgid "Вы уверены, что хотите удалить"
+msgstr "Are you sure you want to delete"
+
+#: templates/status/statuses_list.html:6
+msgid "Список статусов"
+msgstr "List of statuses"
+
+#: templates/status/statuses_list.html:21 templates/tags/tags_list.html:21
+#: templates/tasks/tasks_list.html:47
+msgid "Имя"
+msgstr "Name"
+
+#: templates/status/statuses_list.html:22 templates/tags/tags_list.html:22
+#: templates/tasks/task_view.html:30 templates/tasks/tasks_list.html:51
+#: templates/users_list.html:22
+msgid "Дата создания"
+msgstr "Created at"
+
+#: templates/status/statuses_list.html:35 templates/tags/tags_list.html:35
+#: templates/tasks/task_view.html:55 templates/tasks/tasks_list.html:68
+msgid "Удалить"
+msgstr "Delete"
+
+#: templates/tags/tag_create.html:6
+msgid "Добалвение метки"
+msgstr "Add label"
+
+#: templates/tags/tag_create.html:15 templates/tags/tags_list.html:16
+msgid "Создать метку"
+msgstr "Create label"
+
+#: templates/tags/tag_delete.html:6 templates/tags/tag_delete.html:12
+msgid "Удалине метки"
+msgstr "Delete label"
+
+#: templates/tags/tag_update.html:6
+msgid "Редактирование метки"
+msgstr "Editing a label"
+
+#: templates/tags/tag_update.html:13
+msgid "Изменение метки"
+msgstr "Editing a label"
+
+#: templates/tags/tags_list.html:6
+msgid "Список меток"
+msgstr "List of labels"
+
+#: templates/tasks/task_create.html:6
+msgid "Добалвение задачи"
+msgstr "Add task"
+
+#: templates/tasks/task_create.html:15 templates/tasks/tasks_list.html:9
+msgid "Создать задачу"
+msgstr "Create task"
+
+#: templates/tasks/task_delete.html:6 templates/tasks/task_delete.html:12
+msgid "Удалине задачи"
+msgstr "Delete task"
+
+#: templates/tasks/task_update.html:6
+msgid "Редактирование задачи"
+msgstr "Editing task"
+
+#: templates/tasks/task_update.html:13
+msgid "Изменение задачи"
+msgstr "Changing the task"
+
+#: templates/tasks/task_view.html:5 templates/tasks/task_view.html:11
+msgid "Просмотр задачи"
+msgstr "Viewing a task"
+
+#: templates/tasks/task_view.html:18
+msgid "Автор"
+msgstr "Author"
+
+#: templates/tasks/task_view.html:22 templates/tasks/tasks_list.html:18
+#: templates/tasks/tasks_list.html:50
+msgid "Исполнитель"
+msgstr "Creator"
+
+#: templates/tasks/task_view.html:26 templates/tasks/tasks_list.html:13
+#: templates/tasks/tasks_list.html:48
+msgid "Статус"
+msgstr "Status"
+
+#: templates/tasks/task_view.html:34
+msgid "Описание"
+msgstr "Description"
+
+#: templates/tasks/task_view.html:47
+msgid "Список меток пустой"
+msgstr "The list of labels is empty"
+
+#: templates/tasks/tasks_list.html:5
+msgid "Список задач"
+msgstr "Task list"
+
+#: templates/tasks/tasks_list.html:23
+msgid "Метка"
+msgstr "Label"
+
+#: templates/tasks/tasks_list.html:30
+msgid "Только свои задачи"
+msgstr "Only your own tasks"
+
+#: templates/tasks/tasks_list.html:34
+msgid "Показать"
+msgstr "View"
+
+#: templates/tasks/tasks_list.html:35
+msgid "Сброс"
+msgstr "Reset"
+
+#: templates/tasks/tasks_list.html:49
+msgid "Создатель"
+msgstr "Creator"
+
+#: templates/users_list.html:5 templates/users_list.html:9
+msgid "Список пользователей"
+msgstr "List of users"
+
+#: templates/users_list.html:21
+msgid "Почта"
+msgstr "Email"
+
+#: templates/users_list.html:37
+msgid "Список пользователей пустой"
+msgstr "The list of users is empty"
+
+#~ msgid "удалить"
+#~ msgstr "Delete"

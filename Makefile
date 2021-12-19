@@ -18,3 +18,9 @@ test:
 
 install:
 	@poetry install
+
+translate:
+	poetry run python manage.py makemessages -l ru
+
+compilemessages:
+	poetry run python manage.py compilemessages
