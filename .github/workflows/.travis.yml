@@ -11,6 +11,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - script: |
+          export SECRET_KEY=${{ secrets.SECRET_KEY }}
+          export POST_SERVER_ACCESS_TOKEN=${{ secrets.POST_SERVER_ACCESS_TOKEN }}
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
       - name: updating dpendencies and do linter check
