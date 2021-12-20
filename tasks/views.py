@@ -1,7 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.views import View
-from django.views.generic.list import ListView
 from django_filters.views import FilterView
 
 from tasks.filters import TaskFilter
@@ -51,13 +50,8 @@ class TaskView(View):
                       context={'task': model, 'tags_list': model.tags})
 
 
-class TasksListView(LoginRequiredMixin, ListView, FilterView):
+class TasksListView(LoginRequiredMixin, FilterView):
     login_url = '/login/'
     model = Task
     template_name = 'tasks/tasks_list.html'
     filterset_class = TaskFilter
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['filter'] = TaskFilter(self.request.GET)
-        return context
