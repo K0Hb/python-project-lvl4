@@ -26,7 +26,6 @@
             </tr>
         </thead>
         <tbody>
-        {% if users_list %}
             {% for user in users_list %}
                 <tr>
                 <th>{{ user.pk }}</th>
@@ -41,9 +40,6 @@
                 </td>
                 </tr>
             {% endfor %}
-        {% else %}
-            <p>{% trans "Список пользователей пустой" %}</p>
-        {% endif %}
         </tbody>
         </table>
     </div>
