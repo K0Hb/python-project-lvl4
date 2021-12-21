@@ -5,10 +5,16 @@ from django.contrib.auth.models import User
 
 
 class RegisterUserForm(UserCreationForm):
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['first_name'].required = True
         self.fields['last_name'].required = True
+        self.fields['password1'].widget = forms.PasswordInput(
+            attrs={'class': 'form-control', 'placeholder': 'Пароль'})
+        self.fields['password2'].widget = forms.PasswordInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'Подтверждение пароля'})
 
     class Meta(UserCreationForm.Meta):
         fields = ['username', 'first_name', 'last_name']
@@ -19,21 +25,20 @@ class RegisterUserForm(UserCreationForm):
                 attrs={'placeholder': 'Имя'}),
             'last_name': forms.TextInput(
                 attrs={'placeholder': 'Фамилия'}),
-            'password1': forms.PasswordInput(
-                attrs={'placeholder': 'Password'}),
         }
 
 
 class AuthUserForm(AuthenticationForm, forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['username'].widget = forms.TextInput(
+            attrs={'class': 'form-control', 'placeholder': 'Имя пользователя'})
+        self.fields['password'].widget = forms.PasswordInput(
+            attrs={'class': 'form-control', 'placeholder': 'Пароль'})
+
     class Meta(AuthenticationForm):
         model = User
         fields = ('username', 'password')
-        widgets = {
-            'username': forms.TextInput(
-                attrs={'placeholder': 'Имя пользователя'}),
-            'password': forms.PasswordInput(
-                attrs={'placeholder': 'Пароль'}),
-        }
 
 
 class UserUpdateForm(forms.ModelForm):
