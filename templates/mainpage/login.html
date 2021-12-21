@@ -21,10 +21,10 @@
 <div class="container wrapper flex-grow-1">
 
     <h1 class="my-4">
-        {% trans 'Авторизоваться' %}
+        {% trans 'Вход' %}
     </h1>
 
-    <form method="post" action="{% url 'login' %}">
+    <form method="post" action="{% url 'login_page' %}">
         {% csrf_token %}
         <div class="form-group">
             {{ form.username.label_tag }}

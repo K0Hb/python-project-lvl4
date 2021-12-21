@@ -37,15 +37,15 @@
                 </li>
                 {% endif %}
                 <li class="btn nav-link">
-                    <a class="nav-link" href="{% url 'logout' %}">{% trans 'Выход' %}</a>
+                    <a class="nav-link" href="{% url 'logout_page' %}">{% trans 'Выход' %}</a>
                 </li>
 
                 {% else %}
                 <li class="nav-link">
-                    <a class="nav-link" href="{% url 'login' %}">{% trans "Вход" %}</a>
+                    <a class="nav-link" href="{% url 'login_page' %}">{% trans "Вход" %}</a>
                 </li>
                 <li class="nav-link">
-                    <a class="nav-link" href="{% url 'sign_up_url' %}">{% trans "Регистрация" %}</a>
+                    <a class="nav-link" href="{% url 'sign_up_page' %}">{% trans "Регистрация" %}</a>
                 </li>
                 {% endif %}
         </ul>

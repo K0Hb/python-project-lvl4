@@ -1,9 +1,7 @@
 from django.db import models
-from task_manager import settings
 from status.models import Status
 from tags.models import Tags
-
-User = settings.AUTH_USER_MODEL
+from django.contrib.auth.models import User
 
 
 class Task(models.Model):

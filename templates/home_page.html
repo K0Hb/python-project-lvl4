@@ -12,4 +12,11 @@
     <h1 class="display-4">Task Manger</h1>
     <p class="lead">Домашнаяя страничка</p>
   </div>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="text-center alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
 {% endblock %}

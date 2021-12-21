@@ -1,5 +1,5 @@
 from django.test import TestCase
-from main_page.models import CustomUser
+from django.contrib.auth.models import User
 from status.models import Status
 from django.urls import reverse
 from tasks.models import Task
@@ -9,13 +9,13 @@ from tags.models import Tags
 class TaskTest(TestCase):
 
     def setUp(self):
-        user1 = CustomUser.objects.create_user(username='lol1',
-                                               password='12345',
-                                               email='test@yandex.ru')
+        user1 = User.objects.create_user(username='lol1',
+                                         password='12345',
+                                         email='test@yandex.ru')
         user1.save()
-        user2 = CustomUser.objects.create_user(username='lol2',
-                                               password='19911',
-                                               email='test_2@yandex.ru')
+        user2 = User.objects.create_user(username='lol2',
+                                         password='19911',
+                                         email='test_2@yandex.ru')
         user2.save()
         status = Status.objects.create(name='TestStatus')
         status.save()

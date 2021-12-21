@@ -19,8 +19,8 @@
         <thead>
             <tr>
             <th>ID</th>
-            <th>{% trans "Пользователь" %}</th>
-            <th>{% trans "Почта" %}</th>
+            <th>{% trans "Имя пользователя" %}</th>
+            <th>{% trans "Полное имя" %}</th>
             <th>{% trans "Дата создания" %}</th>
             <th></th>
             </tr>
@@ -31,8 +31,14 @@
                 <tr>
                 <th>{{ user.pk }}</th>
                 <td>{{ user.username }}</td>
-                <td>{{ user.email }}</td>
+                <td>{{ user.first_name }} {{ user.last_name }}</td>
                 <td>{{ user.date_joined }}</td>
+                <td>
+                    {% if user.pk == request.user.pk %}
+                        <a href="{% url 'update_user' user.pk %}">{% trans "Изменить" %}</a> <br>
+                        <a href="{% url 'delete_user' user.pk %}">{% trans "Удалить" %}</a>
+                    {% endif %}
+                </td>
                 </tr>
             {% endfor %}
         {% else %}

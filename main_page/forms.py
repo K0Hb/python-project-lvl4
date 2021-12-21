@@ -1,17 +1,52 @@
 from django import forms  # noqa: F401
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import CustomUser
+from django.contrib.auth.forms import UserCreationForm, \
+    AuthenticationForm
+from django.contrib.auth.models import User
 
 
-class CustomUserCreationForm(UserCreationForm):
+class RegisterUserForm(UserCreationForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['first_name'].required = True
+        self.fields['last_name'].required = True
 
-    class Meta(UserCreationForm):
-        model = CustomUser
-        fields = ['username', 'email']
+    class Meta(UserCreationForm.Meta):
+        fields = ['username', 'first_name', 'last_name']
+        widgets = {
+            'username': forms.TextInput(
+                attrs={'placeholder': 'Имя пользователя'}),
+            'first_name': forms.TextInput(
+                attrs={'placeholder': 'Имя'}),
+            'last_name': forms.TextInput(
+                attrs={'placeholder': 'Фамилия'}),
+            'password1': forms.PasswordInput(
+                attrs={'placeholder': 'Password'}),
+        }
 
 
-class CustomUserChangeForm(UserChangeForm):
+class AuthUserForm(AuthenticationForm, forms.ModelForm):
+    class Meta(AuthenticationForm):
+        model = User
+        fields = ('username', 'password')
+        widgets = {
+            'username': forms.TextInput(
+                attrs={'placeholder': 'Имя пользователя'}),
+            'password': forms.PasswordInput(
+                attrs={'placeholder': 'Пароль'}),
+        }
 
+
+class UserUpdateForm(forms.ModelForm):
     class Meta:
-        model = CustomUser
-        fields = ['username', 'email']
+        model = User
+        fields = ('username', 'first_name', 'last_name')
+        widgets = {
+            'username': forms.TextInput(
+                attrs={'placeholder': 'Имя пользователя'}),
+            'first_name': forms.TextInput(
+                attrs={'placeholder': 'Имя'}),
+            'last_name': forms.TextInput(
+                attrs={'placeholder': 'Фамилия'}),
+            'password': forms.PasswordInput(
+                attrs={'placeholder': 'Пароль'})
+        }
