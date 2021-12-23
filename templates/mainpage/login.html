@@ -2,42 +2,21 @@
 {% load i18n %}
 {% block title %}
     <head>
-         <title>{% trans "Авторизация" %}</title>
+         <title>{% trans "Вход" %}</title>
     </head>
 {% endblock %}
 {% block content %}
-{% if form.errors %}
-    <p>{% trans "Ваше имя пользователя и пароль не совпадают. Пожалуйста, попробуйте снова." %}</p>
-{% endif %}
-{% if next %}
-{% if user.is_authenticated %}
-    <p>{% trans "У вашей учетной записи нет доступа к этой странице. Чтобы продолжить,
-пожалуйста, войдите в систему с учетной записью, у которой есть доступ." %}</p>
-{% else %}
-    <p>{% trans "Пожалуйста, войдите, чтобы увидеть эту страницу." %}</p>
-{% endif %}
-{% endif %}
 
-<div class="container wrapper flex-grow-1">
-
-    <h1 class="my-4">
-        {% trans 'Вход' %}
+  <div class="container wrapper flex-grow-1">
+    <h1 class="h2">
+        {% trans "Вход" %}
     </h1>
-
-    <form method="post" action="{% url 'login_page' %}">
-        {% csrf_token %}
-        <div class="form-group">
-            {{ form.username.label_tag }}
-            {{ form.username }}
-        </div>
-        <div class="form-group">
-            {{ form.password.label_tag }}
-            {{ form.password }}
-        </div>
-        <div class="form-group">
-            <input class="btn btn-primary" type="submit" value="Войти">
-            <input type="hidden" name="next" value="{{ next }}">
-        </div>
-    </form>
-</div>
+    <div>
+        <form id="add_form" method="post">
+          {% csrf_token %}
+          {{form}}
+          <button type='submit' form="add_form" class="btn btn-primary mt-4">{% trans "Войти" %}</button>
+        </form>
+      </div>
+  </div>
 {% endblock %}
