@@ -20,34 +20,32 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'users_page' %}">{% trans "Пользователи" %}</a>
           </li>
-            {% if request.user.is_authenticated %}
-                <a class="p-2 text-dark" href="{% url 'statuses' %}">{% trans 'Статусы' %}</a>
-                <a class="p-2 text-dark" href="{% url 'tasks' %}">{% trans 'Задачи' %}</a>
-                <a class="p-2 text-dark" href="{% url 'tags' %}">{% trans 'Метки' %}</a>
-            {% endif %}
         </ul>
-        <ul class="navbar-nav">
-                {% if request.user.is_authenticated %}
-                <li class="nav-link">
-                    <p class="nav-link">{% trans 'Пользователь' %}: {{ user.get_username }}</p>
-                </li>
-                {% if request.user.is_authenticated and request.user.is_staff %}
-                <li class="nav-link">
-                    <a class="btn nav-link" href="/admin">{% trans 'Админка' %}</a>
-                </li>
-                {% endif %}
-                <li class="btn nav-link">
-                    <a class="nav-link" href="{% url 'logout_page' %}">{% trans 'Выход' %}</a>
-                </li>
-
-                {% else %}
+      <ul class="navbar-nav">
+            {% if not request.user.is_authenticated %}
                 <li class="nav-link">
                     <a class="nav-link" href="{% url 'login_page' %}">{% trans "Вход" %}</a>
                 </li>
                 <li class="nav-link">
                     <a class="nav-link" href="{% url 'sign_up_page' %}">{% trans "Регистрация" %}</a>
                 </li>
-                {% endif %}
+            {% else %}
+                <li class="nav-link">
+                    <p class="nav-link">{% trans 'Пользователь' %}: {{ user.get_username }}</p>
+                </li>
+                <li class="nav-link">
+                    <a class="nav-link" href="{% url 'statuses' %}">{% trans 'Статусы' %}</a>
+                 </li>
+                <li class="nav-link">
+                    <a class="nav-link" href="{% url 'tasks' %}">{% trans 'Задачи' %}</a>
+                </li>
+                <li class="nav-link">
+                    <a class="nav-link" href="{% url 'tags' %}">{% trans 'Метки' %}</a>
+                </li>
+                <li class="nav-link">
+                    <a class="nav-link" href="{% url 'logout_page' %}">{% trans 'Выход' %}</a>
+                </li>
+            {% endif %}
         </ul>
       </div>
     </nav>
