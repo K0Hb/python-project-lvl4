@@ -14,7 +14,10 @@
     <div>
         <form id="add_form" method="post">
           {% csrf_token %}
-          {{form}}
+            <label>Имя пользователя</label>
+              {{form.username}}
+            <label>Пароль</label>
+              {{ form.password }}
           <button type='submit' form="add_form" class="btn btn-primary mt-4">{% trans "Войти" %}</button>
         </form>
       </div>

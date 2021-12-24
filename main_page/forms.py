@@ -1,6 +1,7 @@
 from django import forms  # noqa: F401
 from django.contrib.auth.forms import UserCreationForm, \
-    AuthenticationForm
+    AuthenticationForm, UsernameField
+from django.contrib.auth.views import LoginView
 from django.contrib.auth.models import User
 
 
@@ -29,7 +30,15 @@ class RegisterUserForm(UserCreationForm):
         fields = ['username', 'first_name', 'last_name']
 
 
-class AuthUserForm(AuthenticationForm, forms.ModelForm):
+class AuthUserForm(AuthenticationForm):
+    # username = UsernameField(
+    #     label='Имя пользователя',
+    #     widget=forms.TextInput(attrs={ 'placeholder': 'Имя пользователя'})
+    # )
+    # password = UsernameField(
+    #     label = 'Пароль',
+    #     widget=forms.PasswordInput(attrs={ 'placeholder': 'Пароль'})
+    # )
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['username'].widget = forms.TextInput(
