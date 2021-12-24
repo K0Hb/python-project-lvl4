@@ -59,5 +59,5 @@ class UserUpdateView(SuccessMessageMixin, UpdateView):
     model = User
     template_name = 'mainpage/user_update_form.html'
     success_url = reverse_lazy('users_page')
-    success_message = 'Пользователь успешно изменен'
+    success_message = 'Пользователь успешно изменён'
     form_class = RegisterUserForm
