@@ -15,8 +15,12 @@
   <div>
     <form id="add_form" method="post">
       {% csrf_token %}
-      {{ form.as_p }}
-      <button type='submit' form="add_form" class="btn btn-primary">{% trans "Создать" %}</button>
+        <label for="id_name">Имя</label>
+          {{ form.name }}
+        <br />
+      <div class="form-group">
+          <button type='submit' form="add_form" class="btn btn-primary">{% trans "Создать" %}</button>
+      </div>
     </form>
   </div>
 </div>

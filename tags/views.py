@@ -2,7 +2,7 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
-
+from django.contrib import messages
 from tags.models import Tags
 from tags.forms import RegisterTagForm
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -21,7 +21,7 @@ class CreateTagView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     template_name = 'tags/tag_create.html'
     form_class = RegisterTagForm
     success_url = reverse_lazy('tags')
-    success_message = "Ярлык успешно создан"
+    success_message = "Метка успешно создана"
     login_url = reverse_lazy('login_page')
     redirect_field_name = 'redirect_to'
 
@@ -33,6 +33,11 @@ class UpdateTagView(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy('tags')
     login_url = reverse_lazy('login_page')
     redirect_field_name = 'redirect_to'
+
+    def dispatch(self, request, *args, **kwargs):
+        response = super().dispatch(request, *args, **kwargs)
+        messages.add_message(request, messages.INFO, 'Метка успешно изменена')
+        return response
 
 
 class DeleteTagView(LoginRequiredMixin, DeleteView):

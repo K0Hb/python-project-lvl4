@@ -2,7 +2,7 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
-
+from django.contrib import messages
 from status.models import Status
 from status.forms import RegisterStatusesForm
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -33,6 +33,11 @@ class UpdateStatusView(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy('statuses')
     login_url = reverse_lazy('login_page')
     redirect_field_name = 'redirect_to'
+
+    def dispatch(self, request, *args, **kwargs):
+        response = super().dispatch(request, *args, **kwargs)
+        messages.add_message(request, messages.INFO, 'Статус успешно изменен')
+        return response
 
 
 class DeleteStatusView(LoginRequiredMixin, DeleteView):
