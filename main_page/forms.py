@@ -1,7 +1,6 @@
 from django import forms  # noqa: F401
 from django.contrib.auth.forms import UserCreationForm, \
-    AuthenticationForm, UsernameField
-from django.contrib.auth.views import LoginView
+    AuthenticationForm
 from django.contrib.auth.models import User
 
 
