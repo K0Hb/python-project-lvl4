@@ -55,8 +55,9 @@ class UserDeleteView(DeleteView):
     template_name = 'mainpage/delete_user.html'
 
 
-class UserUpdateView(UpdateView):
+class UserUpdateView(SuccessMessageMixin, UpdateView):
     model = User
     template_name = 'mainpage/user_update_form.html'
-    form_class = RegisterUserForm
-    success_url = reverse_lazy('users')
+    form_class = UserUpdateForm
+    success_url = reverse_lazy('users_page')
+    success_message = 'Пользователь успешно изменен'

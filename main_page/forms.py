@@ -53,7 +53,7 @@ class AuthUserForm(AuthenticationForm):
 class UserUpdateForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name')
+        fields = ('username', 'first_name', 'last_name', 'password')
         widgets = {
             'username': forms.TextInput(
                 attrs={'placeholder': 'Имя пользователя'}),
