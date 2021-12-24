@@ -40,9 +40,14 @@ class UpdateTagView(LoginRequiredMixin, UpdateView):
         return response
 
 
-class DeleteTagView(LoginRequiredMixin, DeleteView):
+class DeleteTagView(SuccessMessageMixin, LoginRequiredMixin, DeleteView):
     model = Tags
     success_url = reverse_lazy('tags')
     template_name = 'tags/tag_delete.html'
     login_url = reverse_lazy('login_page')
     redirect_field_name = 'redirect_to'
+
+    def dispatch(self, request, *args, **kwargs):
+        response = super().dispatch(request, *args, **kwargs)
+        messages.add_message(request, messages.INFO, 'Метка успешно удалена')
+        return response

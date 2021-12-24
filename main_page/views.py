@@ -49,10 +49,11 @@ class UserLogout(SuccessMessageMixin, LogoutView):
         return response
 
 
-class UserDeleteView(DeleteView):
+class UserDeleteView(SuccessMessageMixin, DeleteView):
     model = User
     success_url = reverse_lazy('users_page')
     template_name = 'mainpage/delete_user.html'
+    success_message = 'Пользователь успешно удален'
 
 
 class UserUpdateView(SuccessMessageMixin, UpdateView):

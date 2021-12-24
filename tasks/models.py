@@ -18,13 +18,13 @@ class Task(models.Model):
         blank=True,
         null=True,
         related_name='status',
-        on_delete=models.CASCADE,
+        on_delete=models.PROTECT,
         verbose_name='Status'
     )
     creator = models.ForeignKey(
         User,
         related_name='creator',
-        on_delete=models.CASCADE,
+        on_delete=models.PROTECT,
         verbose_name='Creator'
     )
     executor = models.ForeignKey(

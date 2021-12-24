@@ -6,6 +6,7 @@ from django.contrib import messages
 from status.models import Status
 from status.forms import RegisterStatusesForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import redirect
 
 
 class StatusesListView(LoginRequiredMixin, ListView):
@@ -46,3 +47,17 @@ class DeleteStatusView(LoginRequiredMixin, DeleteView):
     template_name = 'status/statuses_delete.html'
     login_url = reverse_lazy('login_page')
     redirect_field_name = 'redirect_to'
+
+    # def delete(self, request, *args, **kwargs):
+    #     try:
+    #         result = super().delete(request, *args, **kwargs)
+    #         messages.success(request, self.success_message)
+    #         return result
+    #     except Exception:
+    #         messages.error(request, self.protected_message)
+    #     return redirect(self.success_url)
+
+    def dispatch(self, request, *args, **kwargs):
+        response = super().dispatch(request, *args, **kwargs)
+        messages.add_message(request, messages.INFO, 'Статус успешно удален')
+        return response
