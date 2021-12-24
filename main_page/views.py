@@ -6,6 +6,7 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib import messages
 
 
 class HomePageView(TemplateView):
@@ -40,8 +41,12 @@ class UserLoginView(SuccessMessageMixin, LoginView):
 
 
 class UserLogout(SuccessMessageMixin, LogoutView):
-    next_page = reverse_lazy('users_page')
-    success_message = 'Вы разлогинены'
+    next_page = reverse_lazy('home')
+
+    def dispatch(self, request, *args, **kwargs):
+        response = super().dispatch(request, *args, **kwargs)
+        messages.add_message(request, messages.INFO, 'Вы разлогинены')
+        return response
 
 
 class UserDeleteView(DeleteView):
