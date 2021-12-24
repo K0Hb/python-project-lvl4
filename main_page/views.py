@@ -1,7 +1,7 @@
 from django.views.generic.list import ListView
 from django.contrib.auth.models import User
 from django.views.generic.base import TemplateView
-from .forms import RegisterUserForm, AuthUserForm, UserUpdateForm  # noqa: F401
+from .forms import RegisterUserForm, AuthUserForm  # noqa: F401
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.contrib.messages.views import SuccessMessageMixin
@@ -58,6 +58,6 @@ class UserDeleteView(DeleteView):
 class UserUpdateView(SuccessMessageMixin, UpdateView):
     model = User
     template_name = 'mainpage/user_update_form.html'
-    form_class = UserUpdateForm
     success_url = reverse_lazy('users_page')
     success_message = 'Пользователь успешно изменен'
+    form_class = RegisterUserForm

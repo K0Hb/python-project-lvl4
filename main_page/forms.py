@@ -49,18 +49,17 @@ class AuthUserForm(AuthenticationForm):
         model = User
         fields = ('username', 'password')
 
-
-class UserUpdateForm(forms.ModelForm):
-    class Meta:
-        model = User
-        fields = ('username', 'first_name', 'last_name', 'password')
-        widgets = {
-            'username': forms.TextInput(
-                attrs={'placeholder': 'Имя пользователя'}),
-            'first_name': forms.TextInput(
-                attrs={'placeholder': 'Имя'}),
-            'last_name': forms.TextInput(
-                attrs={'placeholder': 'Фамилия'}),
-            'password': forms.PasswordInput(
-                attrs={'placeholder': 'Пароль'})
-        }
+# class UserUpdateForm(UserCreationForm):
+#     class Meta:
+#         model = User
+#         fields = ('username', 'first_name', 'last_name', 'password')
+#         widgets = {
+#             'username': forms.TextInput(
+#                 attrs={'placeholder': 'Имя пользователя'}),
+#             'first_name': forms.TextInput(
+#                 attrs={'placeholder': 'Имя'}),
+#             'last_name': forms.TextInput(
+#                 attrs={'placeholder': 'Фамилия'}),
+#             'password': forms.PasswordInput(
+#                 attrs={'placeholder': 'Пароль'})
+#         }
