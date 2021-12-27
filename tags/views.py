@@ -9,6 +9,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect
 from django.db.models import ProtectedError
 
+TAG_CREATE = "Метка успешно создана"
+TAG_EDIT = "Метка успешно изменена"
+TAG_DEL = "Метка успешно удалена"
+TAG_NOT_DEL = "Невозможно удалить метку, потому что она используется"
+
 
 class TagsListView(LoginRequiredMixin, ListView):
     model = Tags
@@ -23,7 +28,7 @@ class CreateTagView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     template_name = 'tags/tag_create.html'
     form_class = RegisterTagForm
     success_url = reverse_lazy('tags')
-    success_message = "Метка успешно создана"
+    success_message = TAG_CREATE
     login_url = reverse_lazy('login_page')
     redirect_field_name = 'redirect_to'
 
@@ -35,7 +40,7 @@ class UpdateTagView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     success_url = reverse_lazy('tags')
     login_url = reverse_lazy('login_page')
     redirect_field_name = 'redirect_to'
-    success_message = "Метка успешно изменена"
+    success_message = TAG_EDIT
 
 
 class DeleteTagView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
@@ -44,7 +49,7 @@ class DeleteTagView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     template_name = 'tags/tag_delete.html'
     login_url = reverse_lazy('login_page')
     redirect_field_name = 'redirect_to'
-    success_message = "Метка успешно удалена"
+    success_message = TAG_DEL
 
     def delete(self, request, *args, **kwargs):
         self.get_object()
@@ -53,7 +58,7 @@ class DeleteTagView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
         except ProtectedError:
             messages.error(
                 self.request,
-                "Невозможно удалить метку, потому что она используется",
+                TAG_NOT_DEL,
             )
         else:
             messages.success(

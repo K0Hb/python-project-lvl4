@@ -9,6 +9,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect
 from django.db.models import ProtectedError
 
+STAT_CREATE = "Статус успешно создан"
+STAT_EDIT = "Статус успешно изменён"
+STAT_DEL = "Статус успешно удалён"
+STAT_NOT_DEL = "Невозможно удалить статус, потому что он используется"
+
 
 class StatusesListView(LoginRequiredMixin, ListView):
     model = Status
@@ -35,7 +40,7 @@ class CreateStatusView(
     form_class = RegisterStatusesForm
     template_name = 'status/statuses_create.html'
     success_url = reverse_lazy('statuses')
-    success_message = "Статус успешно создан"
+    success_message = STAT_CREATE
     extra_context = {
         'title': 'Создание статуса',
         'button_name': 'Создать'
@@ -55,7 +60,7 @@ class UpdateStatusView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     success_url = reverse_lazy('statuses')
     login_url = reverse_lazy('login_page')
     redirect_field_name = 'redirect_to'
-    success_message = "Статус успешно изменен"
+    success_message = STAT_EDIT
 
 
 class DeleteStatusView(SuccessMessageMixin, LoginRequiredMixin, DeleteView):
@@ -64,7 +69,7 @@ class DeleteStatusView(SuccessMessageMixin, LoginRequiredMixin, DeleteView):
     template_name = 'status/statuses_delete.html'
     login_url = reverse_lazy('login_page')
     redirect_field_name = 'redirect_to'
-    success_message = "Статус успешно удалён"
+    success_message = STAT_DEL
 
     def delete(self, request, *args, **kwargs):
         self.get_object()
@@ -73,7 +78,7 @@ class DeleteStatusView(SuccessMessageMixin, LoginRequiredMixin, DeleteView):
         except ProtectedError:
             messages.error(
                 self.request,
-                "Невозможно удалить статус, потому что он используется",
+                STAT_NOT_DEL,
             )
         else:
             messages.success(
