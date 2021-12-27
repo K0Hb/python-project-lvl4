@@ -25,6 +25,19 @@ class CreateTaskView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
         return super().form_valid(form)
 
 
+class CreateTask(LoginRequiredMixin, SuccessMessageMixin, CreateView):
+    login_url = reverse_lazy('login_page')
+    model = Task
+    form_class = RegisterTaskForm
+    template_name = 'tasks/task_create.html'
+    success_url = reverse_lazy('tasks')
+    success_message = "Задача успешно создана"
+    extra_context = {
+        'title': 'Create task',
+        'button_name': 'Создать'
+    }
+
+
 class UpdateTaskView(LoginRequiredMixin, UpdateView):
     model = Task
     template_name = 'tasks/task_update.html'

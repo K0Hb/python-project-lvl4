@@ -8,6 +8,14 @@
 {% endblock %}
 
 {% block content %}
+{% if messages %}
+    {% for message in messages %}
+        <div class="text-center alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+<h1 class="my-4">{% trans "Задачи" %}</h1>
 <a class="nav-link" href="{% url 'create_task' %}">{% trans "Создать задачу" %}</a>
 <div class="card mb-3">
   <div class="card-body bg-light">
