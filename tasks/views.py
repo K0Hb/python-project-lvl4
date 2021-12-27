@@ -12,20 +12,6 @@ from tasks.forms import RegisterTaskForm
 
 
 class CreateTaskView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
-    model = Task
-    template_name = 'tasks/task_create.html'
-    form_class = RegisterTaskForm
-    success_url = reverse_lazy('tasks')
-    success_message = "Задача успешно создана"
-    login_url = reverse_lazy('login_page')
-    redirect_field_name = 'redirect_to'
-
-    def form_valid(self, form):
-        form.instance.creator = self.request.user
-        return super().form_valid(form)
-
-
-class CreateTask(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     login_url = reverse_lazy('login_page')
     model = Task
     form_class = RegisterTaskForm
@@ -33,7 +19,7 @@ class CreateTask(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     success_url = reverse_lazy('tasks')
     success_message = "Задача успешно создана"
     extra_context = {
-        'title': 'Create task',
+        'title': 'Создать задачу',
         'button_name': 'Создать'
     }
 
