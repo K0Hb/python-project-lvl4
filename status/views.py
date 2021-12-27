@@ -23,15 +23,6 @@ class StatusesListView(LoginRequiredMixin, ListView):
     redirect_field_name = 'redirect_to'
 
 
-# class CreateStatusView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
-#     model = Status
-#     template_name = 'status/statuses_create.html'
-#     form_class = RegisterStatusesForm
-#     success_url = reverse_lazy('statuses')
-#     success_message = "Статус успешно создан"
-#     login_url = reverse_lazy('login_page')
-#     redirect_field_name = 'redirect_to'
-
 class CreateStatusView(
     LoginRequiredMixin, SuccessMessageMixin, CreateView
 ):
@@ -42,7 +33,7 @@ class CreateStatusView(
     success_url = reverse_lazy('statuses')
     success_message = STAT_CREATE
     extra_context = {
-        'title': 'Создание статуса',
+        'title': 'Создать статус',
         'button_name': 'Создать'
     }
 
@@ -61,6 +52,10 @@ class UpdateStatusView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     login_url = reverse_lazy('login_page')
     redirect_field_name = 'redirect_to'
     success_message = STAT_EDIT
+    extra_context = {
+        'title': 'Изменение статуса',
+        'button_name': 'Изменить'
+    }
 
 
 class DeleteStatusView(SuccessMessageMixin, LoginRequiredMixin, DeleteView):

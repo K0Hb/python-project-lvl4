@@ -1,5 +1,7 @@
 {% extends 'main_template.html' %}
 {% load i18n %}
+{% load render_table from django_tables2 %}
+{% load bootstrap4 %}
 
 {% block title %}
     <head>
@@ -9,17 +11,13 @@
 
 {% block content %}
 <div class="container wrapper flex-grow-1">
-  <h1 class="my-4">
-      {% trans "Изменение статуса" %}
-  </h1>
-  <div>
-    <form id="add_form" method="post">
-      {% csrf_token %}
-        <label for="id_name">Имя</label>
-          {{ form.name }}
-        <br />
-      <button type='submit' form="add_form" class="btn btn-primary">{% trans "Изменить" %}</button>
+	<h1 class="my-4">{% trans title %}</h1>
+    <form method="post" class="form">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+        <button type="submit" class="btn btn-primary">{% trans 'Изменить' %}</button>
+        {% endbuttons %}
     </form>
-  </div>
 </div>
 {% endblock %}
