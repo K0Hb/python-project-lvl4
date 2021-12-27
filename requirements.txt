@@ -18,3 +18,4 @@ psycopg2
 dj-database-url
 django-filter
 whitenoise
+django_tables2
