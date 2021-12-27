@@ -10,6 +10,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from tasks.forms import RegisterTaskForm
 from django.contrib.auth.models import User
+from django.contrib import messages
 
 TASK_CREATE = "Задача успешно создана"
 TASK_DEL = 'Задача успешно удалена'
@@ -49,9 +50,15 @@ class DeleteTaskView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     success_url = reverse_lazy('tasks')
     template_name = 'tasks/task_delete.html'
     login_url = reverse_lazy('login_page')
-    # redirect_field_name = 'redirect_to'
-    # valid_eliminar_rel = login_url
     success_message = TASK_DEL
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(
+            self.request,
+            self.success_message
+        )
+        return super(DeleteTaskView, self).delete(self.request,
+                                                  *args, **kwargs)
 
 
 class TaskView(View):
