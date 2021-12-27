@@ -6,6 +6,8 @@ from django.contrib import messages
 from tags.models import Tags
 from tags.forms import RegisterTagForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import redirect
+from django.db.models import ProtectedError
 
 
 class TagsListView(LoginRequiredMixin, ListView):
@@ -26,28 +28,36 @@ class CreateTagView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     redirect_field_name = 'redirect_to'
 
 
-class UpdateTagView(LoginRequiredMixin, UpdateView):
+class UpdateTagView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Tags
     template_name = 'tags/tag_update.html'
     form_class = RegisterTagForm
     success_url = reverse_lazy('tags')
     login_url = reverse_lazy('login_page')
     redirect_field_name = 'redirect_to'
-
-    def dispatch(self, request, *args, **kwargs):
-        response = super().dispatch(request, *args, **kwargs)
-        messages.add_message(request, messages.INFO, 'Метка успешно изменена')
-        return response
+    success_message = "Метка успешно изменена"
 
 
-class DeleteTagView(SuccessMessageMixin, LoginRequiredMixin, DeleteView):
+class DeleteTagView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     model = Tags
     success_url = reverse_lazy('tags')
     template_name = 'tags/tag_delete.html'
     login_url = reverse_lazy('login_page')
     redirect_field_name = 'redirect_to'
+    success_message = "Метка успешно удалена"
 
-    def dispatch(self, request, *args, **kwargs):
-        response = super().dispatch(request, *args, **kwargs)
-        messages.add_message(request, messages.INFO, 'Метка успешно удалена')
-        return response
+    def delete(self, request, *args, **kwargs):
+        self.get_object()
+        try:
+            super(DeleteTagView, self).delete(self.request, *args, **kwargs)
+        except ProtectedError:
+            messages.error(
+                self.request,
+                "Невозможно удалить метку, потому что она используется",
+            )
+        else:
+            messages.success(
+                self.request,
+                self.success_message,
+            )
+        return redirect(self.success_url)

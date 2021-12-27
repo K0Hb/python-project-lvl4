@@ -7,6 +7,7 @@ from status.models import Status
 from status.forms import RegisterStatusesForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect
+from django.db.models import ProtectedError
 
 
 class StatusesListView(LoginRequiredMixin, ListView):
@@ -27,37 +28,36 @@ class CreateStatusView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     redirect_field_name = 'redirect_to'
 
 
-class UpdateStatusView(LoginRequiredMixin, UpdateView):
+class UpdateStatusView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Status
     template_name = 'status/status_update.html'
     form_class = RegisterStatusesForm
     success_url = reverse_lazy('statuses')
     login_url = reverse_lazy('login_page')
     redirect_field_name = 'redirect_to'
-
-    def dispatch(self, request, *args, **kwargs):
-        response = super().dispatch(request, *args, **kwargs)
-        messages.add_message(request, messages.INFO, 'Статус успешно изменен')
-        return response
+    success_message = "Статус успешно изменен"
 
 
-class DeleteStatusView(LoginRequiredMixin, DeleteView):
+class DeleteStatusView(SuccessMessageMixin, LoginRequiredMixin, DeleteView):
     model = Status
     success_url = reverse_lazy('statuses')
     template_name = 'status/statuses_delete.html'
     login_url = reverse_lazy('login_page')
     redirect_field_name = 'redirect_to'
+    success_message = "Статус успешно удален"
 
-    # def delete(self, request, *args, **kwargs):
-    #     try:
-    #         result = super().delete(request, *args, **kwargs)
-    #         messages.success(request, self.success_message)
-    #         return result
-    #     except Exception:
-    #         messages.error(request, self.protected_message)
-    #     return redirect(self.success_url)
-
-    def dispatch(self, request, *args, **kwargs):
-        response = super().dispatch(request, *args, **kwargs)
-        messages.add_message(request, messages.INFO, 'Статус успешно удален')
-        return response
+    def delete(self, request, *args, **kwargs):
+        self.get_object()
+        try:
+            super(DeleteStatusView, self).delete(self.request, *args, **kwargs)
+        except ProtectedError:
+            messages.error(
+                self.request,
+                "Невозможно удалить статус, потому что он используется",
+            )
+        else:
+            messages.success(
+                self.request,
+                self.success_message,
+            )
+        return redirect(self.success_url)

@@ -30,7 +30,7 @@ class Task(models.Model):
     executor = models.ForeignKey(
         User,
         verbose_name='Executor',
-        on_delete=models.CASCADE,
+        on_delete=models.PROTECT,
         null=True,
         blank=True,
         related_name='executor'
