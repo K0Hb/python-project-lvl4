@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django_filters',
+    'django_tables2',
     'task_manager',
     'bootstrap4',
     'main_page',

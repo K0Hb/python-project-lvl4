@@ -18,14 +18,34 @@ class StatusesListView(LoginRequiredMixin, ListView):
     redirect_field_name = 'redirect_to'
 
 
-class CreateStatusView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
+# class CreateStatusView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
+#     model = Status
+#     template_name = 'status/statuses_create.html'
+#     form_class = RegisterStatusesForm
+#     success_url = reverse_lazy('statuses')
+#     success_message = "Статус успешно создан"
+#     login_url = reverse_lazy('login_page')
+#     redirect_field_name = 'redirect_to'
+
+class CreateStatusView(
+    LoginRequiredMixin, SuccessMessageMixin, CreateView
+):
+    login_url = 'login'
     model = Status
-    template_name = 'status/statuses_create.html'
     form_class = RegisterStatusesForm
+    template_name = 'status/statuses_create.html'
     success_url = reverse_lazy('statuses')
     success_message = "Статус успешно создан"
-    login_url = reverse_lazy('login_page')
-    redirect_field_name = 'redirect_to'
+    extra_context = {
+        'title': 'Создание статуса',
+        'button_name': 'Создать'
+    }
+
+    def handle_no_permission(self):
+        messages.error(
+            self.request,
+            "о"
+        )
 
 
 class UpdateStatusView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
@@ -44,7 +64,7 @@ class DeleteStatusView(SuccessMessageMixin, LoginRequiredMixin, DeleteView):
     template_name = 'status/statuses_delete.html'
     login_url = reverse_lazy('login_page')
     redirect_field_name = 'redirect_to'
-    success_message = "Статус успешно удален"
+    success_message = "Статус успешно удалён"
 
     def delete(self, request, *args, **kwargs):
         self.get_object()
