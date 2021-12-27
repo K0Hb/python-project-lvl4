@@ -10,18 +10,6 @@
 {% endblock %}
 
 {% block content %}
-{#<div class="container wrapper flex-grow-1">#}
-{#  <h1 class="my-4">#}
-{#      {% trans "Создать задачу" %}#}
-{#  </h1>#}
-{#  <div>#}
-{#    <form id="add_form" method="post">#}
-{#      {% csrf_token %}#}
-{#      {{ form.as_p }}#}
-{#      <button type='submit' form="add_form" class="btn btn-primary">{% trans "Создать" %}</button>#}
-{#    </form>#}
-{#  </div>#}
-{#</div>#}
 <div class="container wrapper flex-grow-1">
     <h1 class="my-4">{% translate title %}</h1>
     <form method="post" class="form">
@@ -32,5 +20,5 @@
         {% endbuttons %}
     </form>
 </div>
-        <h3>попробовал django_table</h3>
+        <h3>попробовал django_tables</h3>
 {% endblock %}

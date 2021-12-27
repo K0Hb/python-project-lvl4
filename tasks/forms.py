@@ -20,5 +20,5 @@ class RegisterTaskForm(ModelForm):
         self.fields['name'].label = "Имя"
         self.fields['description'].label = "Описание"
         self.fields['status'].label = "Статус"
-        self.fields['executor'].label = "Испольнитель"
+        self.fields['executor'].label = "Исполнитель"
         self.fields['tags'].label = "Метки"
