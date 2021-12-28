@@ -3,6 +3,24 @@ from tasks.models import Task
 
 
 class TasksTable(tables.Table):
+    TEMPLATE = '''
+        <a href="{% url 'update_task' record.pk %}"
+         class="tbl_icon edit">{{ edit }}</a>
+        <br>
+        <a href="{% url 'delete_task' record.pk %}"
+         class="tbl_icon delete">{{ delete }}</a>
+    '''
+    links = tables.TemplateColumn(
+        TEMPLATE,
+        empty_values=(),
+        verbose_name='',
+        extra_context={'edit': 'Изменить', 'delete': 'Удалить'}
+    )
+
+    name = tables.TemplateColumn(
+        '<a href="{% url \'view_task\' record.pk %}">{{ record.name }}</a>'
+    )
+
     class Meta:
         model = Task
         template_name = "django_tables2/bootstrap4.html"

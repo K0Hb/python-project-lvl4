@@ -6,8 +6,8 @@ class Tags(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta(object):
-        verbose_name = 'tag'
-        verbose_name_plural = 'tags'
+        verbose_name = 'Метка'
+        verbose_name_plural = 'Метки'
 
     def __str__(self):
         return self.name

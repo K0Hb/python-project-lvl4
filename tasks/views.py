@@ -9,9 +9,10 @@ from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from tasks.forms import RegisterTaskForm
-# from django.contrib.auth.models import User
 from main_page.models import MyUser as User
 from django.contrib import messages
+from tasks.tables import TasksTable
+from django_tables2 import SingleTableView
 
 TASK_CREATE = "Задача успешно создана"
 TASK_DEL = 'Задача успешно удалена'
@@ -69,8 +70,9 @@ class TaskView(View):
                       context={'task': model, 'tags_list': model.tags})
 
 
-class TasksListView(LoginRequiredMixin, FilterView):
+class TasksListView(LoginRequiredMixin, FilterView, SingleTableView):
     login_url = '/login/'
     model = Task
-    template_name = 'tasks/tasks_list.html'
+    template_name = 'tasks/new_tasks_list.html'
     filterset_class = TaskFilter
+    table_class = TasksTable

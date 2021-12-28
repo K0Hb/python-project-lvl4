@@ -6,8 +6,8 @@ class Status(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta(object):
-        verbose_name = 'status'
-        verbose_name_plural = 'statuses'
+        verbose_name = 'Статус'
+        verbose_name_plural = 'Статусы'
 
     def __str__(self):
         return self.name

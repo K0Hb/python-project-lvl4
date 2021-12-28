@@ -6,43 +6,42 @@ from main_page.models import MyUser as User
 
 
 class Task(models.Model):
-    name = models.CharField(max_length=75)
+    name = models.CharField('Имя', max_length=75)
     description = models.TextField(
         'Description',
         max_length=200,
         blank=True,
-        null=True
+        null=True,
     )
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField('Дата создания', auto_now_add=True)
     status = models.ForeignKey(
         Status,
         blank=True,
         null=True,
-        related_name='status',
+        related_name='Статус',
         on_delete=models.PROTECT,
-        verbose_name='Status'
+        verbose_name='Статусы'
     )
     creator = models.ForeignKey(
         User,
-        related_name='creator',
+        related_name='Создаетль',
         on_delete=models.PROTECT,
-        verbose_name='Creator'
+        verbose_name='Создатели'
     )
     executor = models.ForeignKey(
         User,
-        verbose_name='Executor',
+        verbose_name='Исполнители',
         on_delete=models.PROTECT,
         null=True,
         blank=True,
-        related_name='executor',
-        # to_field = 'first_name'
+        related_name='Испольнитель',
     )
 
     tags = models.ManyToManyField(
         Tags,
         blank=True,
-        verbose_name='Tags',
-        related_name='Tags',
+        verbose_name='Метки',
+        related_name='Метка',
     )
 
     @property
