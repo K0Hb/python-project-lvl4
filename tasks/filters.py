@@ -15,7 +15,7 @@ class TaskFilter(django_filters.FilterSet):
 
     tags = django_filters.ModelChoiceFilter(
         queryset=Tags.objects.all(),
-        label='Метки'
+        label='Метка'
     )
 
     def filter_own_tasks(self, queryset, name, value):

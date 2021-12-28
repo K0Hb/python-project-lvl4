@@ -7,16 +7,13 @@ class TaskFilter(django_filters.FilterSet):
     class Meta:
         model = Task
         fields = ['creator', 'status', 'tags', 'executor']
-        labels = {'labels': 'Метки',
-                  'creator': 'Создатель',
-                  'status': 'Статус'}
 
 
 class RegisterTaskForm(ModelForm):
     class Meta:
         model = Task
         fields = ('name', 'description', 'status', 'executor', 'tags')
-        labels = {'labels': 'Метки',
+        labels = {'labels': 'Метка',
                   'creator': 'Создатель',
                   'status': 'Статус'}
 

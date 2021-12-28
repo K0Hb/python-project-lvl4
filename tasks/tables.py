@@ -25,7 +25,7 @@ class TasksTable(tables.Table):
         model = Task
         template_name = "django_tables2/bootstrap4.html"
         fields = ('id', 'name', 'status', 'creator', 'executor',
-                  'created_at', 'tags')
+                  'created_at')
         attrs = {
             'class': 'table table-striped'
         }

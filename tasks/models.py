@@ -2,7 +2,6 @@ from django.db import models
 from status.models import Status
 from tags.models import Tags
 from main_page.models import MyUser as User
-# from django.contrib.auth.models import User
 
 
 class Task(models.Model):
@@ -18,19 +17,17 @@ class Task(models.Model):
         Status,
         blank=True,
         null=True,
-        related_name='Статус',
         on_delete=models.PROTECT,
-        verbose_name='Статусы'
+        verbose_name='Статус'
     )
     creator = models.ForeignKey(
         User,
-        related_name='Создаетль',
         on_delete=models.PROTECT,
-        verbose_name='Создатели'
+        verbose_name='Создатель'
     )
     executor = models.ForeignKey(
         User,
-        verbose_name='Исполнители',
+        verbose_name='Исполнитель',
         on_delete=models.PROTECT,
         null=True,
         blank=True,
@@ -40,16 +37,12 @@ class Task(models.Model):
     tags = models.ManyToManyField(
         Tags,
         blank=True,
-        verbose_name='Метки',
-        related_name='Метка',
+        verbose_name='Метка',
     )
 
     @property
     def full_name(self):
         return '%s %s' % (self.executor.first_name, self.executor.last_name)
-
-    class Meta():
-        ordering = ['name']
 
     def __str__(self):
         return self.name
