@@ -1,6 +1,7 @@
 from django.shortcuts import redirect
 from django.views.generic.list import ListView
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
+from main_page.models import MyUser as User
 from django.views.generic.base import TemplateView
 from .forms import RegisterUserForm, AuthUserForm  # noqa: F401
 from django.urls import reverse_lazy

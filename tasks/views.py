@@ -9,7 +9,8 @@ from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from tasks.forms import RegisterTaskForm
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
+from main_page.models import MyUser as User
 from django.contrib import messages
 
 TASK_CREATE = "Задача успешно создана"
