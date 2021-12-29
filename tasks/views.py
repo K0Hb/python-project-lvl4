@@ -67,7 +67,7 @@ class TaskView(View):
     def get(self, request, pk):
         model = Task.objects.get(id=pk)
         return render(request, 'tasks/task_view.html',
-                      context={'task': model, 'tags_list': model.tags})
+                      context={'task': model, 'labels_list': model.labels})
 
 
 class TasksListView(LoginRequiredMixin, FilterView, SingleTableView):
