@@ -13,7 +13,7 @@ ______
 ### Запуск сервера с помощью Docker:
 `docker build .`
 
-`docker images` ищем наж IMAGE ID
+`docker images` ищем наш IMAGE ID
 
 `docker run -p 8000:8000` + наш IMAGE ID
 
