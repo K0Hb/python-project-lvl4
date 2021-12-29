@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from status.models import Status
 from django.urls import reverse
 from tasks.models import Task
-from labels.models import Tags
+from labels.models import Labels
 
 
 class TaskTest(TestCase):
@@ -19,9 +19,9 @@ class TaskTest(TestCase):
         user2.save()
         status = Status.objects.create(name='TestStatus')
         status.save()
-        tag1 = Tags.objects.create(name='TestTag1')
+        tag1 = Labels.objects.create(name='TestTag1')
         tag1.save()
-        tag2 = Tags.objects.create(name='TestTag2')
+        tag2 = Labels.objects.create(name='TestTag2')
         tag2.save()
         task = Task.objects.create(
             name='Go home',
@@ -60,7 +60,7 @@ class TaskTest(TestCase):
         assert task.description == 'text'
 
     def test_tag(self):
-        tag = Tags.objects.get(id=1)
-        self.assertTrue(isinstance(tag, Tags))
+        tag = Labels.objects.get(id=1)
+        self.assertTrue(isinstance(tag, Labels))
         max_length = tag._meta.get_field('name').max_length
         self.assertEquals(max_length, 20)
