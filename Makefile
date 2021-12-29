@@ -24,3 +24,6 @@ translate:
 
 compilemessages:
 	poetry run python manage.py compilemessages
+
+migrate:
+	python3 manage.py migrate
