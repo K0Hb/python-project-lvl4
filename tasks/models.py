@@ -1,6 +1,6 @@
 from django.db import models
 from status.models import Status
-from tags.models import Tags
+from labels.models import Labels
 from main_page.models import MyUser as User
 
 
@@ -34,8 +34,8 @@ class Task(models.Model):
         related_name='Испольнитель',
     )
 
-    tags = models.ManyToManyField(
-        Tags,
+    labels = models.ManyToManyField(
+        Labels,
         blank=True,
         verbose_name='Метка',
     )

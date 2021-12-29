@@ -1,6 +1,6 @@
 import django_filters
 from tasks.models import Task
-from tags.models import Tags
+from labels.models import Labels
 
 from django.forms.widgets import CheckboxInput
 
@@ -13,8 +13,8 @@ class TaskFilter(django_filters.FilterSet):
         widget=CheckboxInput
     )
 
-    tags = django_filters.ModelChoiceFilter(
-        queryset=Tags.objects.all(),
+    labels = django_filters.ModelChoiceFilter(
+        queryset=Labels.objects.all(),
         label='Метка'
     )
 
@@ -25,7 +25,7 @@ class TaskFilter(django_filters.FilterSet):
 
     class Meta:
         model = Task
-        fields = ['executor', 'status', 'tags', 'creator']
+        fields = ['executor', 'status', 'labels', 'creator']
         filter_overrides = {
             django_filters.BooleanFilter: {
                 'extra': lambda f: {'widget': CheckboxInput},

@@ -25,9 +25,9 @@ INSTALLED_APPS = [
     'task_manager',
     'bootstrap4',
     'main_page',
+    'labels',
     'status',
     'tasks',
-    'tags',
 ]
 
 MIDDLEWARE = [

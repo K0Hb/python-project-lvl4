@@ -19,7 +19,7 @@
     <h1 class="my-4 h2">
         {% trans "Метки" %}
     </h1>
-    <a href='{% url "create_tag" %}'>{% trans "Создать метку" %}</a>
+    <a href='{% url "create_label" %}'>{% trans "Создать метку" %}</a>
     <table class="table table-striped mt-2">
     <thead>
         <tr>
@@ -30,15 +30,15 @@
         </tr>
     </thead>
     <tbody>
-        {% for tag in tags_list %}
+        {% for label in labels_list %}
             <tr>
-            <th scope="row">{{ tag.pk }}</th>
-            <td>{{ tag.name }}</td>
-            <td>{{ tag.created_at }}</td>
+            <th scope="row">{{ label.pk }}</th>
+            <td>{{ label.name }}</td>
+            <td>{{ label.created_at }}</td>
             <td>
                 {% if user.id == request.user.id %}
-                    <a href='{% url "update_tag" tag.id %}'>{% trans "Изменить" %}</a> <br>
-                    <a href='{% url "delete_tag" tag.id %}'>{% trans "Удалить" %}</a>
+                    <a href='{% url "update_label" label.id %}'>{% trans "Изменить" %}</a> <br>
+                    <a href='{% url "delete_label" label.id %}'>{% trans "Удалить" %}</a>
                 {% endif %}
             </td>
             </tr>

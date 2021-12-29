@@ -1,11 +1,11 @@
 from django.forms import ModelForm
 from django import forms
-from tags.models import Tags
+from labels.models import Labels
 
 
 class RegisterTagForm(ModelForm):
     class Meta:
-        model = Tags
+        model = Labels
         fields = ['name']
         widgets = {
             'name': forms.TextInput(

@@ -6,13 +6,13 @@ import django_filters
 class TaskFilter(django_filters.FilterSet):
     class Meta:
         model = Task
-        fields = ['creator', 'status', 'tags', 'executor']
+        fields = ['creator', 'status', 'labels', 'executor']
 
 
 class RegisterTaskForm(ModelForm):
     class Meta:
         model = Task
-        fields = ('name', 'description', 'status', 'executor', 'tags')
+        fields = ('name', 'description', 'status', 'executor', 'labels')
         labels = {'labels': 'Метка',
                   'creator': 'Создатель',
                   'status': 'Статус'}
@@ -23,4 +23,4 @@ class RegisterTaskForm(ModelForm):
         self.fields['description'].label = "Описание"
         self.fields['status'].label = "Статус"
         self.fields['executor'].label = "Исполнитель"
-        self.fields['tags'].label = "Метки"
+        self.fields['labels'].label = "Метки"

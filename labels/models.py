@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Tags(models.Model):
+class Labels(models.Model):
     name = models.CharField(max_length=20)
     created_at = models.DateTimeField(auto_now_add=True)
 
