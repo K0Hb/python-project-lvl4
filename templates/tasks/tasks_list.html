@@ -18,8 +18,8 @@
     {% endfor %}
 {% endif %}
 <div class="container wrapper flex-grow-1">
-	<h1 class="my-4">{% translate title %}</h1>
-	<a href="{% url 'create_task' %}">{% translate 'Создать задачу' %}</a>
+	<h1 class="my-4">{% trans title %}</h1>
+	<a href="{% url 'create_task' %}">{% trans 'Создать задачу' %}</a>
 
 	<div class="card mb-3">
 		<div class="card-body bg-light">

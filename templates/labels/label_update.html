@@ -15,7 +15,7 @@
   <div>
     <form id="add_form" method="post">
       {% csrf_token %}
-        <label for="id_name">Имя</label>
+        <label for="id_name">{% trans "Имя" %}</label>
           {{ form.name }}
         <br />
       <button type='submit' form="add_form" class="btn btn-primary">{% trans "Изменить" %}</button>

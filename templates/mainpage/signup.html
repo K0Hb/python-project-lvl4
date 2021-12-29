@@ -14,20 +14,20 @@
     <form method="post">
         {% csrf_token %}
         <p>
-        <label for="id_username">Имя пользователя</label>
+        <label for="id_username">{% trans 'Имя пользователя' %}</label>
               {{ form.username }}
             <span class="help-tooltip">Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_.</span>
         </p>
         <p>
-        <label for="id_first_name">Имя</label>
+        <label for="id_first_name">{% trans 'Имя' %}</label>
               {{ form.first_name }}
         </p>
         <p>
-        <label for="id_last_name">Фамилия</label>
+        <label for="id_last_name">{% trans 'Фамилия' %}</label>
               {{ form.last_name }}
         </p>
         <p>
-        <label for="id_password1">Пароль</label>
+        <label for="id_password1">{% trans 'Пароль' %}</label>
               {{ form.password1 }}
         <span class="helptext"></span>
         <ul>
@@ -37,7 +37,7 @@
         </ul>
         </p>
         <p>
-        <label for="id_password2">Подтверждение пароля</label>
+        <label for="id_password2">{% trans 'Подтверждение пароля' %}</label>
               {{ form.password2 }}
         <span class="helptext">Для подтверждения введите, пожалуйста, пароль ещё раз.</span>
         </p>

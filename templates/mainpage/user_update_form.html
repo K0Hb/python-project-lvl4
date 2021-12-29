@@ -15,7 +15,7 @@
             {% csrf_token %}
 {#            {{ form.as_p }}#}
             <p>
-            <label for="id_username">Имя пользователя</label>
+            <label for="id_username">{% trans "Имя пользователя" %}</label>
                   {{ form.username }}
                 <span class="help-tooltip">Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_.</span>
             </p>
