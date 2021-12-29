@@ -11,9 +11,12 @@ ______
 
 ______
 ### Запуск сервера с помощью Docker:
-`docker build .`
 
-`docker images` ищем наш IMAGE ID
+`touch .env` - создаем env файл и дабавляем туда глоабльную переменную  `SECRET_KEY =` как в файле примере `env(example)`
+
+`docker build .` - создание образоа
+
+`docker images` - ищем наш IMAGE ID
 
 `docker run -p 8000:8000` + наш IMAGE ID
 
