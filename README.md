@@ -5,5 +5,5 @@
 
 [comment]: <> ([![Build Status]&#40;https://app.travis-ci.com/K0Hb/python-project-lvl4.svg?branch=main&#41;]&#40;https://app.travis-ci.com/K0Hb/python-project-lvl4&#41;)
 
-### Простой пример реализации мененджера задач, с помощью framework Django.
+###  Простой пример реализации мененджера задач, с помощью framework Django.
 Ссылка для просомтра: https://task-manager-app-ru.herokuapp.com/
