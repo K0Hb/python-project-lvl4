@@ -1,5 +1,7 @@
 {% extends 'main_template.html' %}
 {% load i18n %}
+{% load render_table from django_tables2 %}
+{% load bootstrap4 %}
 
 {% block title %}
     <head>
@@ -15,74 +17,24 @@
         </div>
     {% endfor %}
 {% endif %}
-<h1 class="my-4">{% trans "Задачи" %}</h1>
-<a class="nav-link" href="{% url 'create_task' %}">{% trans "Создать задачу" %}</a>
-<div class="card mb-3">
-  <div class="card-body bg-light">
-    <form class="form-inline center" method="get">
-      <div class="form-group"><label for="id_status">{% trans "Статус" %}</label><div class="ml-2 mr-3"><select name="status" class="form-control" title="" id="id_status">
-          {% for status in filter.form.status %}
-            {{ status }}
-          {% endfor %}
-    </select></div></div>
-          <div class="form-group"><label for="id_executor">{% trans "Исполнитель" %}</label><div class="mr-3 ml-2"><select name="executor" class="form-control" title="" id="id_executor">
-          {% for executor in filter.form.executor %}
-            {{ executor }}
-          {% endfor %}
-    </select></div></div>
-          <div class="form-group"><label for="id_label">{% trans "Метка" %}</label><div class="mr-3 ml-2"><select name="tags" class="form-control" title="" id="id_label">
-          {% for tag in filter.form.tags %}
-            {{ tag }}
-          {% endfor %}
-    </select></div></div>
-          <div class="form-group"><div class="mr-3"><div class="form-check">
-              {{ filter.form.own_tasks }}
-              <label class="form-check-label" >{% trans "Только свои задачи" %}</label>
-          </div></div></div>
+<div class="container wrapper flex-grow-1">
+	<h1 class="my-4">{% translate title %}</h1>
+	<a href="{% url 'create_task' %}">{% translate 'Создать задачу' %}</a>
 
-          <div class="form-group">
-            <button class="nav-link" type="submit">{% trans "Показать" %}</button>
-            <a href="{% url 'tasks' %}" class="nav-link">{% trans "Сброс" %}</a>
-          </div>
+	<div class="card mb-3">
+		<div class="card-body bg-light">
+		<form method="get" class="form-inline center">
+			{% bootstrap_field filter.form.status field_class='ml-2 mr-3' %}
+			{% bootstrap_field filter.form.executor field_class='ml-2 mr-3' %}
+			{% bootstrap_field filter.form.labels field_class='ml-2 mr-3' %}
+			{% bootstrap_field filter.form.own_tasks field_class='mr-3' %}
+			{% buttons %}
+			<button type="submit" class="btn btn-primary">{% translate 'Показать' %}</button>
+			{% endbuttons %}
+		</form>
+		</div>
+	</div>
 
-    </form>
-  </div>
+	{% render_table table %}
 </div>
-        <div class="row">
-            <div class="col-sm">
-                <table class="table table-striped mt-2">
-                <thead>
-                    <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">{% trans "Имя" %}</th>
-                    <th scope="col">{% trans "Статус" %}</th>
-                    <th scope="col">{% trans "Создатель" %}</th>
-                    <th scope="col">{% trans "Исполнитель" %}</th>
-                    <th scope="col">{% trans "Дата создания" %}</th>
-                    <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for obj in filter.qs %}
-                        <tr>
-                        <th scope="row">{{ obj.pk }}</th>
-                        <td><a href="{% url 'view_task' obj.id %}">{{ obj.name }}</a></td>
-                        <td>{{ obj.status }}</td>
-                        <td>{{ obj.creator }}</td>
-                        <td>{{ obj.executor }}</td>
-                        <td>{{ obj.created_at }}</td>
-                        <td>{{ obj.tags.all|join:", "|truncatewords:4 }}</td>
-                        <td>
-                                <a href="{% url 'update_task' obj.id %}">{% trans "Изменить" %}</a> <br>
-                            {% if obj.creator_id == request.user.id %}
-                                <a href="{% url 'delete_task' obj.id %}">{% trans "Удалить" %}</a>
-                            {% endif %}
-                        </td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
 {% endblock %}

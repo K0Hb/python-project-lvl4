@@ -1,7 +1,6 @@
 from django import forms  # noqa: F401
 from django.contrib.auth.forms import UserCreationForm, \
     AuthenticationForm
-# from django.contrib.auth.models import User
 from main_page.models import MyUser as User
 
 
@@ -31,14 +30,7 @@ class RegisterUserForm(UserCreationForm):
 
 
 class AuthUserForm(AuthenticationForm):
-    # username = UsernameField(
-    #     label='Имя пользователя',
-    #     widget=forms.TextInput(attrs={ 'placeholder': 'Имя пользователя'})
-    # )
-    # password = UsernameField(
-    #     label = 'Пароль',
-    #     widget=forms.PasswordInput(attrs={ 'placeholder': 'Пароль'})
-    # )
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['username'].widget = forms.TextInput(
@@ -49,18 +41,3 @@ class AuthUserForm(AuthenticationForm):
     class Meta(AuthenticationForm):
         model = User
         fields = ('username', 'password')
-
-# class UserUpdateForm(UserCreationForm):
-#     class Meta:
-#         model = User
-#         fields = ('username', 'first_name', 'last_name', 'password')
-#         widgets = {
-#             'username': forms.TextInput(
-#                 attrs={'placeholder': 'Имя пользователя'}),
-#             'first_name': forms.TextInput(
-#                 attrs={'placeholder': 'Имя'}),
-#             'last_name': forms.TextInput(
-#                 attrs={'placeholder': 'Фамилия'}),
-#             'password': forms.PasswordInput(
-#                 attrs={'placeholder': 'Пароль'})
-#         }

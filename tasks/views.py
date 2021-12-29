@@ -73,6 +73,6 @@ class TaskView(View):
 class TasksListView(LoginRequiredMixin, FilterView, SingleTableView):
     login_url = '/login/'
     model = Task
-    template_name = 'tasks/new_tasks_list.html'
+    template_name = 'tasks/tasks_list.html'
     filterset_class = TaskFilter
     table_class = TasksTable
