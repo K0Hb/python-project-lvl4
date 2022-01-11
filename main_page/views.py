@@ -27,9 +27,6 @@ class UsersListView(ListView):
     template_name = 'users_list.html'
     context_object_name = 'users_list'
 
-    def get_queryset(self):
-        return User.objects.all()
-
 
 class RegisterUserView(SuccessMessageMixin, CreateView):
     model = User
