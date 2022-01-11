@@ -14,4 +14,4 @@ my.log
 *.log
 .env
 db.sqlite3
-.task_manager/static/task_manager
+task_manager/static/task_manager
