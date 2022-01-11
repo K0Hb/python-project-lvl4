@@ -113,6 +113,7 @@ LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
 
 # AUTH_USER_MODEL = 'main_page.CustomUser'
+# AUTH_USER_MODEL = 'main_page.MyUser'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 

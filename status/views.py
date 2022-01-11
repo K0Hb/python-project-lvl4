@@ -38,12 +38,6 @@ class CreateStatusView(
         'button_name': 'Создать'
     }
 
-    def handle_no_permission(self):
-        messages.error(
-            self.request,
-            "о"
-        )
-
 
 class UpdateStatusView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Status
