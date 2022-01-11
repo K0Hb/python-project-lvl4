@@ -1,2 +1,4 @@
 SECRET_KEY = your key
 POST_SERVER_ACCESS_TOKEN = your key
+DEBUG = True
+ALLOWED_HOSTS = domain1 domain2
