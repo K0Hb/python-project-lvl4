@@ -20,6 +20,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+         env:
+          DEBUG: True
+          ALLOWED_HOSTS: localhost
 
       - name: Hexlet project check
         uses: hexlet/project-action@release
