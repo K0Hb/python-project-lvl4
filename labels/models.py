@@ -6,6 +6,7 @@ class Labels(models.Model):
     name = models.CharField(
         verbose_name=_('Имя'),
         max_length=20,
+        unique=True
     )
     created_at = models.DateTimeField(
         verbose_name=_('Дата создания'),

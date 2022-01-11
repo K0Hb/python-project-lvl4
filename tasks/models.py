@@ -8,7 +8,8 @@ from django.utils.translation import gettext as _
 class Task(models.Model):
     name = models.CharField(
         verbose_name=_('Имя'),
-        max_length=75
+        max_length=75,
+        unique=True
     )
     description = models.TextField(
         verbose_name=_('Описание'),
