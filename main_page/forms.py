@@ -1,7 +1,5 @@
 from django import forms  # noqa: F401
-from django.contrib.auth.forms import UserCreationForm, \
-    AuthenticationForm
-from main_page.models import MyUser as User
+from django.contrib.auth.forms import UserCreationForm
 
 
 class RegisterUserForm(UserCreationForm):
@@ -27,17 +25,3 @@ class RegisterUserForm(UserCreationForm):
 
     class Meta(UserCreationForm.Meta):
         fields = ['username', 'first_name', 'last_name']
-
-
-class AuthUserForm(AuthenticationForm):
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['username'].widget = forms.TextInput(
-            attrs={'class': 'form-control', 'placeholder': 'Имя пользователя'})
-        self.fields['password'].widget = forms.PasswordInput(
-            attrs={'class': 'form-control', 'placeholder': 'Пароль'})
-
-    class Meta(AuthenticationForm):
-        model = User
-        fields = ('username', 'password')
