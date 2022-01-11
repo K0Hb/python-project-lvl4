@@ -8,11 +8,12 @@ from labels.forms import RegisterTagForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect
 from django.db.models import ProtectedError
+from django.utils.translation import gettext as _
 
-TAG_CREATE = "Метка успешно создана"
-TAG_EDIT = "Метка успешно изменена"
-TAG_DEL = "Метка успешно удалена"
-TAG_NOT_DEL = "Невозможно удалить метку, потому что она используется"
+TAG_CREATE = _("Метка успешно создана")
+TAG_EDIT = _("Метка успешно изменена")
+TAG_DEL = _("Метка успешно удалена")
+TAG_NOT_DEL = _("Невозможно удалить метку, потому что она используется")
 
 
 class TagsListView(LoginRequiredMixin, ListView):

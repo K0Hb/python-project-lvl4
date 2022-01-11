@@ -34,8 +34,8 @@ class CreateStatusView(
     success_url = reverse_lazy('statuses')
     success_message = STAT_CREATE
     extra_context = {
-        'title': 'Создать статус',
-        'button_name': 'Создать'
+        'title': _('Создать статус'),
+        'button_name': _('Создать')
     }
 
 
@@ -48,8 +48,8 @@ class UpdateStatusView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     redirect_field_name = 'redirect_to'
     success_message = STAT_EDIT
     extra_context = {
-        'title': 'Изменение статуса',
-        'button_name': 'Изменить'
+        'title': _('Изменение статуса'),
+        'button_name': _('Изменить')
     }
 
 

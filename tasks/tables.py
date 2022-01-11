@@ -1,4 +1,5 @@
 import django_tables2 as tables
+from django.utils.translation import gettext as _
 from tasks.models import Task
 
 
@@ -14,7 +15,7 @@ class TasksTable(tables.Table):
         TEMPLATE,
         empty_values=(),
         verbose_name='',
-        extra_context={'edit': 'Изменить', 'delete': 'Удалить'}
+        extra_context={'edit': _('Изменить'), 'delete': _('Удалить')}
     )
 
     name = tables.TemplateColumn(

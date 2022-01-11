@@ -1,5 +1,6 @@
 from django.forms import ModelForm
 from status.models import Status
+from django.utils.translation import gettext as _
 
 
 class RegisterStatusesForm(ModelForm):
@@ -9,4 +10,4 @@ class RegisterStatusesForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['name'].label = "Имя"
+        self.fields['name'].label = _("Имя")

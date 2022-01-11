@@ -3,6 +3,7 @@ from tasks.models import Task
 from labels.models import Labels
 
 from django.forms.widgets import CheckboxInput
+from django.utils.translation import gettext as _
 
 
 class TaskFilter(django_filters.FilterSet):
@@ -15,7 +16,7 @@ class TaskFilter(django_filters.FilterSet):
 
     labels = django_filters.ModelChoiceFilter(
         queryset=Labels.objects.all(),
-        label='Метка'
+        label=_('Метка')
     )
 
     def filter_own_tasks(self, queryset, name, value):

@@ -2,21 +2,22 @@ from django.db import models
 from status.models import Status
 from labels.models import Labels
 from main_page.models import MyUser as User
+from django.utils.translation import gettext as _
 
 
 class Task(models.Model):
     name = models.CharField(
-        verbose_name='Имя',
+        verbose_name=_('Имя'),
         max_length=75
     )
     description = models.TextField(
-        'Description',
+        verbose_name=_('Описание'),
         max_length=200,
         blank=True,
         null=True,
     )
     created_at = models.DateTimeField(
-        verbose_name='Дата создания',
+        verbose_name=_('Дата создания'),
         auto_now_add=True
     )
     status = models.ForeignKey(
@@ -24,26 +25,26 @@ class Task(models.Model):
         blank=True,
         null=True,
         on_delete=models.PROTECT,
-        verbose_name='Статус'
+        verbose_name=_('Статус')
     )
     creator = models.ForeignKey(
         User,
         on_delete=models.PROTECT,
-        verbose_name='Создатель'
+        verbose_name=_('Создатель')
     )
     executor = models.ForeignKey(
         User,
-        verbose_name='Исполнитель',
+        verbose_name=_('Исполнитель'),
         on_delete=models.PROTECT,
         null=True,
         blank=True,
-        related_name='Испольнитель',
+        related_name=_('Испольнитель'),
     )
 
     labels = models.ManyToManyField(
         Labels,
         blank=True,
-        verbose_name='Метка',
+        verbose_name=_('Метка'),
     )
 
     @property

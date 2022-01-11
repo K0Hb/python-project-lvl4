@@ -1,6 +1,7 @@
 from django.forms import ModelForm
 from tasks.models import Task
 import django_filters
+from django.utils.translation import gettext as _
 
 
 class TaskFilter(django_filters.FilterSet):
@@ -13,14 +14,14 @@ class RegisterTaskForm(ModelForm):
     class Meta:
         model = Task
         fields = ('name', 'description', 'status', 'executor', 'labels')
-        labels = {'labels': 'Метка',
-                  'creator': 'Создатель',
-                  'status': 'Статус'}
+        labels = {'labels': _('Метка'),
+                  'creator': _('Создатель'),
+                  'status': _('Статус')}
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['name'].label = "Имя"
-        self.fields['description'].label = "Описание"
-        self.fields['status'].label = "Статус"
-        self.fields['executor'].label = "Исполнитель"
-        self.fields['labels'].label = "Метки"
+        self.fields['name'].label = _("Имя")
+        self.fields['description'].label = _("Описание")
+        self.fields['status'].label = _("Статус")
+        self.fields['executor'].label = _("Исполнитель")
+        self.fields['labels'].label = _("Метки")
