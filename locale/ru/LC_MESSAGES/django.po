@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-11 11:43+0000\n"
+"POT-Creation-Date: 2022-01-11 17:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,33 +20,64 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: main_page/views.py:14
+#: labels/forms.py:13 labels/forms.py:19 labels/models.py:7 status/models.py:8
+#: templates/labels/label_create.html:18 templates/labels/label_update.html:18
+#: templates/labels/labels_list.html:27 templates/mainpage/signup.html:22
+#: templates/status/statuses_list.html:27
+msgid "Имя"
+msgstr "Name"
+
+#: labels/models.py:11 status/models.py:11 templates/labels/labels_list.html:28
+#: templates/status/statuses_list.html:28 templates/tasks/task_view.html:31
+#: templates/users_list.html:31
+msgid "Дата создания"
+msgstr "Created at"
+
+#: labels/models.py:16 templates/labels/labels_list.html:20
+#: templates/main_template.html:42 templates/tasks/task_view.html:40
+msgid "Метки"
+msgstr "Labels"
+
+#: labels/models.py:17
+msgid "Метка"
+msgstr "Label"
+
+#: main_page/views.py:15
 msgid "Пользователь успешно зарегистрирован"
 msgstr "The user has been successfully registered"
 
-#: main_page/views.py:15
+#: main_page/views.py:16
 msgid "Вы залогинены"
 msgstr "You are logged in"
 
-#: main_page/views.py:16
+#: main_page/views.py:17
 msgid "Вы разлогинены"
 msgstr "You are logged out"
 
-#: main_page/views.py:17
+#: main_page/views.py:18
 #, fuzzy
 #| msgid "Пользователь"
 msgid "Пользователь успешно удалён"
 msgstr "User"
 
-#: main_page/views.py:19 tasks/views.py:21
+#: main_page/views.py:20 tasks/views.py:21
 msgid "Невозможно удалить пользователя, потому что он используется"
 msgstr "It is not possible to delete a user because it is being used"
 
-#: main_page/views.py:20
+#: main_page/views.py:21
 #, fuzzy
 #| msgid "Пользователь"
 msgid "Пользователь успешно изменён"
 msgstr "User"
+
+#: status/models.py:15 templates/tasks/task_view.html:27
+msgid "Статус"
+msgstr "Status"
+
+#: status/models.py:16 templates/main_template.html:36
+#: templates/status/statuses_list.html:20
+msgid "Статусы"
+msgstr "Statuses"
 
 #: status/tables.py:12 templates/labels/label_create.html:21
 #: templates/status/statuses_create.html:19 templates/tasks/task_create.html:19
@@ -113,12 +144,6 @@ msgstr "Add label"
 msgid "Создать метку"
 msgstr "Create label"
 
-#: templates/labels/label_create.html:18 templates/labels/label_update.html:18
-#: templates/labels/labels_list.html:27 templates/mainpage/signup.html:22
-#: templates/status/statuses_list.html:27
-msgid "Имя"
-msgstr "Name"
-
 #: templates/labels/label_delete.html:6 templates/labels/label_delete.html:13
 msgid "Удалине метки"
 msgstr "Delete label"
@@ -147,16 +172,6 @@ msgstr "Change"
 msgid "Список меток"
 msgstr "List of labels"
 
-#: templates/labels/labels_list.html:20 templates/main_template.html:42
-#: templates/tasks/task_view.html:40
-msgid "Метки"
-msgstr "Labels"
-
-#: templates/labels/labels_list.html:28 templates/status/statuses_list.html:28
-#: templates/tasks/task_view.html:31 templates/users_list.html:31
-msgid "Дата создания"
-msgstr "Created at"
-
 #: templates/labels/labels_list.html:41 templates/status/statuses_list.html:41
 #: templates/tasks/task_view.html:56 templates/users_list.html:46
 msgid "Удалить"
@@ -170,8 +185,8 @@ msgstr "Task manager"
 msgid "Пользователи"
 msgstr "Users"
 
-#: templates/main_template.html:26 templates/mainpage/login.html:5
-#: templates/mainpage/login.html:18
+#: templates/main_template.html:26 templates/mainpage/login.html:6
+#: templates/mainpage/login.html:19
 msgid "Вход"
 msgstr "Log in"
 
@@ -183,10 +198,6 @@ msgstr "Registration"
 #: templates/main_template.html:33
 msgid "Пользователь"
 msgstr "User"
-
-#: templates/main_template.html:36 templates/status/statuses_list.html:20
-msgid "Статусы"
-msgstr "Statuses"
 
 #: templates/main_template.html:39
 msgid "Задачи"
@@ -206,7 +217,7 @@ msgstr "List of users"
 msgid "У вас нет прав для изменения другого пользователя."
 msgstr "You don't have the rights to change another user."
 
-#: templates/mainpage/login.html:27
+#: templates/mainpage/login.html:25
 msgid "Войти"
 msgstr "Login"
 
@@ -283,10 +294,6 @@ msgstr "Author"
 msgid "Исполнитель"
 msgstr "Creator"
 
-#: templates/tasks/task_view.html:27
-msgid "Статус"
-msgstr "Status"
-
 #: templates/tasks/task_view.html:35
 msgid "Описание"
 msgstr "Description"
@@ -339,9 +346,6 @@ msgstr "The list of users is empty"
 
 #~ msgid "Изменение статуса"
 #~ msgstr "Status change"
-
-#~ msgid "Метка"
-#~ msgstr "Label"
 
 #~ msgid "Только свои задачи"
 #~ msgstr "Only your own tasks"

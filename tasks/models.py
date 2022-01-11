@@ -5,14 +5,20 @@ from main_page.models import MyUser as User
 
 
 class Task(models.Model):
-    name = models.CharField('Имя', max_length=75)
+    name = models.CharField(
+        verbose_name='Имя',
+        max_length=75
+    )
     description = models.TextField(
         'Description',
         max_length=200,
         blank=True,
         null=True,
     )
-    created_at = models.DateTimeField('Дата создания', auto_now_add=True)
+    created_at = models.DateTimeField(
+        verbose_name='Дата создания',
+        auto_now_add=True
+    )
     status = models.ForeignKey(
         Status,
         blank=True,
