@@ -2,6 +2,7 @@ from django.shortcuts import redirect
 from django.views.generic.list import ListView
 from main_page.models import MyUser as User
 from django.views.generic.base import TemplateView
+from django.contrib.auth.forms import AuthenticationForm
 from .forms import RegisterUserForm  # noqa: F401
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
@@ -40,6 +41,7 @@ class RegisterUserView(SuccessMessageMixin, CreateView):
 
 class UserLoginView(SuccessMessageMixin, LoginView):
     template_name = 'mainpage/login.html'
+    form_class = AuthenticationForm
     success_url = reverse_lazy('home')
     success_message = USER_LOG
 
