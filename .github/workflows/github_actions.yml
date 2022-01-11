@@ -21,7 +21,7 @@ jobs:
         uses: paambaati/codeclimate-action@v2.7.5
         env:
           DEBUG: True
-          ALLOWED_HOSTS: ["*"] 
+          ALLOWED_HOSTS: "*" 
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
           POST_SERVER_ACCESS_TOKEN: ${{ secrets.POST_SERVER_ACCESS_TOKEN }}
           CC_TEST_REPORTER_ID: ${{ secrets.TOKEN_DJANGO }}
