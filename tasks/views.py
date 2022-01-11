@@ -13,11 +13,13 @@ from main_page.models import MyUser as User
 from django.contrib import messages
 from tasks.tables import TasksTable
 from django_tables2 import SingleTableView
+from django.utils.translation import gettext as _
 
-TASK_CREATE = "Задача успешно создана"
-TASK_DEL = 'Задача успешно удалена'
-TASK_NOT_DEL = 'Невозможно удалить пользователя, потому что он используется'
-TASK_UPD = 'Задача успешно изменена'
+TASK_CREATE = _("Задача успешно создана")
+TASK_DEL = _('Задача успешно удалена')
+TASK_NOT_DEL = _(
+    'Невозможно удалить пользователя, потому что он используется')
+TASK_UPD = _('Задача успешно изменена')
 
 
 class CreateTaskView(LoginRequiredMixin, SuccessMessageMixin, CreateView):

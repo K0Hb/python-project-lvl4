@@ -8,14 +8,16 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib import messages
+from django.utils.translation import gettext as _
 from tasks.models import Task
 
-USER_REG = 'Пользователь успешно зарегистрирован'
-USER_LOG = 'Вы залогинены'
-USER_OUTLOG = 'Вы разлогинены'
-USER_DEL = 'Пользователь успешно удалён'
-USER_NOT_DEL = 'Невозможно удалить пользователя, потому что он используется'
-USER_UPD = 'Пользователь успешно изменён'
+USER_REG = _('Пользователь успешно зарегистрирован')
+USER_LOG = _('Вы залогинены')
+USER_OUTLOG = _('Вы разлогинены')
+USER_DEL = _('Пользователь успешно удалён')
+USER_NOT_DEL = _(
+    'Невозможно удалить пользователя, потому что он используется')
+USER_UPD = _('Пользователь успешно изменён')
 
 
 class HomePageView(TemplateView):

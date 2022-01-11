@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-29 18:03+0000\n"
+"POT-Creation-Date: 2022-01-11 11:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,10 +20,60 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
+#: main_page/views.py:14
+msgid "Пользователь успешно зарегистрирован"
+msgstr "The user has been successfully registered"
+
+#: main_page/views.py:15
+msgid "Вы залогинены"
+msgstr "You are logged in"
+
+#: main_page/views.py:16
+msgid "Вы разлогинены"
+msgstr "You are logged out"
+
+#: main_page/views.py:17
+#, fuzzy
+#| msgid "Пользователь"
+msgid "Пользователь успешно удалён"
+msgstr "User"
+
+#: main_page/views.py:19 tasks/views.py:21
+msgid "Невозможно удалить пользователя, потому что он используется"
+msgstr "It is not possible to delete a user because it is being used"
+
+#: main_page/views.py:20
+#, fuzzy
+#| msgid "Пользователь"
+msgid "Пользователь успешно изменён"
+msgstr "User"
+
 #: status/tables.py:12 templates/labels/label_create.html:21
 #: templates/status/statuses_create.html:19 templates/tasks/task_create.html:19
 msgid "Создать"
 msgstr "Create"
+
+#: status/views.py:13
+#, fuzzy
+#| msgid "Пользователь"
+msgid "Статус успешно создан"
+msgstr "User"
+
+#: status/views.py:14
+#, fuzzy
+#| msgid "Пользователь"
+msgid "Статус успешно изменён"
+msgstr "User"
+
+#: status/views.py:15
+#, fuzzy
+#| msgid "Пользователь"
+msgid "Статус успешно удалён"
+msgstr "User"
+
+#: status/views.py:16
+msgid "Невозможно удалить статус, потому что он используется"
+msgstr "It is not possible to delete the status because it is being used"
 
 #: task_manager/settings.py:93
 msgid "Английский"
@@ -32,6 +82,24 @@ msgstr "English"
 #: task_manager/settings.py:94
 msgid "Русский"
 msgstr "Russian"
+
+#: tasks/views.py:18
+#, fuzzy
+#| msgid "Пользователь"
+msgid "Задача успешно создана"
+msgstr "User"
+
+#: tasks/views.py:19
+#, fuzzy
+#| msgid "Пользователь"
+msgid "Задача успешно удалена"
+msgstr "User"
+
+#: tasks/views.py:22
+#, fuzzy
+#| msgid "Пользователь"
+msgid "Задача успешно изменена"
+msgstr "User"
 
 #: templates/home_page.html:6
 msgid "Домашняя страница"

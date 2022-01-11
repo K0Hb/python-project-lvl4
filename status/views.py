@@ -8,11 +8,12 @@ from status.forms import RegisterStatusesForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect
 from django.db.models import ProtectedError
+from django.utils.translation import gettext as _
 
-STAT_CREATE = "Статус успешно создан"
-STAT_EDIT = "Статус успешно изменён"
-STAT_DEL = "Статус успешно удалён"
-STAT_NOT_DEL = "Невозможно удалить статус, потому что он используется"
+STAT_CREATE = _("Статус успешно создан")
+STAT_EDIT = _("Статус успешно изменён")
+STAT_DEL = _("Статус успешно удалён")
+STAT_NOT_DEL = _("Невозможно удалить статус, потому что он используется")
 
 
 class StatusesListView(LoginRequiredMixin, ListView):
