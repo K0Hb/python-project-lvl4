@@ -50,7 +50,7 @@ class Task(models.Model):
 
     @property
     def full_name(self):
-        return '%s %s' % (self.executor.first_name, self.executor.last_name)
+        return f'{self.executor.first_name} {self.executor.last_name}'
 
     def __str__(self):
         return self.name
