@@ -63,7 +63,7 @@ class Task_Label(models.Model):
         Task,
         on_delete=models.CASCADE,
         verbose_name=_('Task_id')
-        )
+    )
     label_id = models.ForeignKey(
         Labels,
         on_delete=models.PROTECT,
