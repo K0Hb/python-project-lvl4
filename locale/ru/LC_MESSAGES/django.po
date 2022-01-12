@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-12 19:47+0000\n"
+"POT-Creation-Date: 2022-01-12 19:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -250,8 +250,8 @@ msgid "Deleting user"
 msgstr "Удаление пользователя"
 
 #: templates/mainpage/delete_user.html:21
-msgid "You don"
-msgstr "У вас нет прав изменять другого пользователя."
+msgid "You dont have the rights to change another user."
+msgstr ""
 
 #: templates/mainpage/login.html:25
 msgid "Enter"
@@ -387,11 +387,14 @@ msgstr "Вы разлогинены"
 
 #: users/views.py:18
 msgid "The user has been successfully deleted"
-msgstr "Пользователь был успешно удалён"
+msgstr "Пользователь успешно удалён"
 
 #: users/views.py:21
 msgid "User successfully changed"
 msgstr "Пользователь успешно изменён"
+
+#~ msgid "You don"
+#~ msgstr "У вас нет прав изменять другого пользователя."
 
 #~ msgid "Пользователь"
 #~ msgstr "User"
