@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-12 19:55+0000\n"
+"POT-Creation-Date: 2022-01-12 19:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -84,11 +84,11 @@ msgstr "Статус успешно создан"
 
 #: status/views.py:14
 msgid "Status successfully changed"
-msgstr "Статус успешно изменен"
+msgstr "Статус успешно изменён"
 
 #: status/views.py:15
 msgid "Status successfully deleted"
-msgstr "Статус успешно удален"
+msgstr "Статус успешно удалён"
 
 #: status/views.py:16
 #, fuzzy
