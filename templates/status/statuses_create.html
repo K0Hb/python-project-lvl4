@@ -5,7 +5,7 @@
 
 {% block title %}
     <head>
-         <title>{% trans "Добалвение статуса" %}</title>
+         <title>{% trans "Adding a status" %}</title>
     </head>
 {% endblock %}
 
@@ -16,9 +16,8 @@
         {% csrf_token %}
         {% bootstrap_form form %}
         {% buttons %}
-            <button type="submit" class="btn btn-primary">{% trans 'Создать' %}</button>
+            <button type="submit" class="btn btn-primary">{% trans 'Create' %}</button>
         {% endbuttons %}
     </form>
 </div>
-        <h3>попробовал django_table</h3>
 {% endblock %}

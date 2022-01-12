@@ -2,12 +2,12 @@
 {% load i18n %}
 {% block title %}
     <head>
-         <title>{% trans "Список пользователей" %}</title>
+         <title>{% trans "List of users" %}</title>
     </head>
 {% endblock %}
 
 {% block heading %}
-    <h1>{% trans "Список пользователей" %}</h1>
+    <h1>{% trans "List of users" %}</h1>
 {% endblock %}
 
 {% block content %}
@@ -20,15 +20,15 @@
 {% endif %}
     <div class="container wrapper flex-grow-1">
       <h1 class="my-4">
-        {% trans "Пользователи" %}
+        {% trans "Users" %}
       </h1>
         <table class="table table-striped">
         <thead>
             <tr>
             <th>ID</th>
-            <th>{% trans "Имя пользователя" %}</th>
-            <th>{% trans "Полное имя" %}</th>
-            <th>{% trans "Дата создания" %}</th>
+            <th>{% trans "User name" %}</th>
+            <th>{% trans "Full name" %}</th>
+            <th>{% trans "Date of creation" %}</th>
             <th></th>
             </tr>
         </thead>
@@ -42,14 +42,14 @@
                 <td>{{ user.date_joined }}</td>
                 <td>
                     {% if user.pk == request.user.pk %}
-                        <a href="{% url 'update_user' user.pk %}">{% trans "Изменить" %}</a> <br>
-                        <a href="{% url 'delete_user' user.pk %}">{% trans "Удалить" %}</a>
+                        <a href="{% url 'update_user' user.pk %}">{% trans "Change" %}</a> <br>
+                        <a href="{% url 'delete_user' user.pk %}">{% trans "Delete" %}</a>
                     {% endif %}
                 </td>
                 </tr>
             {% endfor %}
         {% else %}
-            <p>{% trans "Список пользователей пустой" %}</p>
+            <p>{% trans "The list of users is empty" %}</p>
         {% endif %}
         </tbody>
         </table>

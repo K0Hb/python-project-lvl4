@@ -10,10 +10,10 @@ class RegisterTagForm(ModelForm):
         fields = ['name']
         widgets = {
             'name': forms.TextInput(
-                attrs={'placeholder': _('Имя')})
+                attrs={'placeholder': _('Name')})
         }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['name'].widget.attrs['class'] = 'form-control'
-        self.fields['name'].label = _("Имя")
+        self.fields['name'].label = _("Name")

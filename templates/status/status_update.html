@@ -5,7 +5,7 @@
 
 {% block title %}
     <head>
-         <title>{% trans "Редактирование статуса" %}</title>
+         <title>{% trans "Editing the status" %}</title>
     </head>
 {% endblock %}
 
@@ -16,7 +16,7 @@
         {% csrf_token %}
         {% bootstrap_form form %}
         {% buttons %}
-        <button type="submit" class="btn btn-primary">{% trans 'Изменить' %}</button>
+        <button type="submit" class="btn btn-primary">{% trans 'Change' %}</button>
         {% endbuttons %}
     </form>
 </div>

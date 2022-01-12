@@ -5,7 +5,7 @@
 
 {% block title %}
     <head>
-         <title>{% trans "Добалвение задачи" %}</title>
+         <title>{% trans "Adding a task" %}</title>
     </head>
 {% endblock %}
 
@@ -16,7 +16,7 @@
         {% csrf_token %}
         {% bootstrap_form form %}
         {% buttons %}
-            <button type="submit" class="btn btn-primary">{% trans 'Создать' %}</button>
+            <button type="submit" class="btn btn-primary">{% trans 'Create' %}</button>
         {% endbuttons %}
     </form>
 </div>

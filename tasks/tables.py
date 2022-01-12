@@ -15,7 +15,7 @@ class TasksTable(tables.Table):
         TEMPLATE,
         empty_values=(),
         verbose_name='',
-        extra_context={'edit': _('Изменить'), 'delete': _('Удалить')}
+        extra_context={'edit': _('Change'), 'delete': _('Delete')}
     )
 
     name = tables.TemplateColumn(

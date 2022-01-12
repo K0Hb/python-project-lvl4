@@ -10,10 +10,11 @@ from django.shortcuts import redirect
 from django.db.models import ProtectedError
 from django.utils.translation import gettext as _
 
-STAT_CREATE = _("Статус успешно создан")
-STAT_EDIT = _("Статус успешно изменён")
-STAT_DEL = _("Статус успешно удалён")
-STAT_NOT_DEL = _("Невозможно удалить статус, потому что он используется")
+STAT_CREATE = _("Status successfully created")
+STAT_EDIT = _("Status successfully changed")
+STAT_DEL = _("Status successfully deleted")
+STAT_NOT_DEL = _("It is not possible to delete the \
+                 status because it is being used")
 
 
 class StatusesListView(LoginRequiredMixin, ListView):
@@ -34,8 +35,8 @@ class CreateStatusView(
     success_url = reverse_lazy('statuses')
     success_message = STAT_CREATE
     extra_context = {
-        'title': _('Создать статус'),
-        'button_name': _('Создать')
+        'title': _('Create status'),
+        'button_name': _('Craete')
     }
 
 
@@ -48,8 +49,8 @@ class UpdateStatusView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     redirect_field_name = 'redirect_to'
     success_message = STAT_EDIT
     extra_context = {
-        'title': _('Изменение статуса'),
-        'button_name': _('Изменить')
+        'title': _('Status change'),
+        'button_name': _('Change')
     }
 
 

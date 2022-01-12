@@ -12,13 +12,13 @@ from django.contrib import messages
 from django.utils.translation import gettext as _
 from tasks.models import Task
 
-USER_REG = _('Пользователь успешно зарегистрирован')
-USER_LOG = _('Вы залогинены')
-USER_OUTLOG = _('Вы разлогинены')
-USER_DEL = _('Пользователь успешно удалён')
+USER_REG = _('The user has been successfully registered')
+USER_LOG = _('You are logged in')
+USER_OUTLOG = _('You are logged out')
+USER_DEL = _('The user has been successfully deleted')
 USER_NOT_DEL = _(
-    'Невозможно удалить пользователя, потому что он используется')
-USER_UPD = _('Пользователь успешно изменён')
+    'It is not possible to delete a user because it is being used')
+USER_UPD = _('User successfully changed')
 
 
 class HomePageView(TemplateView):

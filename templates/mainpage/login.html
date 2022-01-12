@@ -3,7 +3,7 @@
 {% load bootstrap4 %}
 {% block title %}
     <head>
-         <title>{% trans "Вход" %}</title>
+         <title>{% trans "Login" %}</title>
     </head>
 {% endblock %}
 {% block content %}
@@ -16,13 +16,13 @@
     {% endif %}
   <div class="container wrapper flex-grow-1">
     <h1 class="h2">
-        {% trans "Вход" %}
+        {% trans "Login" %}
     </h1>
     <div>
         <form id="add_form" method="post">
           {% csrf_token %}
           {% bootstrap_form form %}
-          <button type='submit' form="add_form" class="btn btn-primary mt-4">{% trans "Войти" %}</button>
+          <button type='submit' form="add_form" class="btn btn-primary mt-4">{% trans "Enter" %}</button>
         </form>
       </div>
   </div>

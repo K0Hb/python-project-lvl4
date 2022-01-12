@@ -15,11 +15,11 @@ from tasks.tables import TasksTable
 from django_tables2 import SingleTableView
 from django.utils.translation import gettext as _
 
-TASK_CREATE = _("Задача успешно создана")
-TASK_DEL = _('Задача успешно удалена')
+TASK_CREATE = _("The task was successfully created")
+TASK_DEL = _('The task was successfully deleted')
 TASK_NOT_DEL = _(
-    'Невозможно удалить пользователя, потому что он используется')
-TASK_UPD = _('Задача успешно изменена')
+    'It is not possible to delete a user because it is being used')
+TASK_UPD = _('The task has been successfully changed')
 
 
 class CreateTaskView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
@@ -30,8 +30,8 @@ class CreateTaskView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     success_url = reverse_lazy('tasks')
     success_message = TASK_CREATE
     extra_context = {
-        'title': _('Создать задачу'),
-        'button_name': _('Создать')
+        'title': _('Create task'),
+        'button_name': _('Create')
     }
 
     def form_valid(self, form):
@@ -46,7 +46,7 @@ class UpdateTaskView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     template_name = 'tasks/task_update.html'
     success_url = reverse_lazy('tasks')
     success_message = TASK_UPD
-    extra_context = {'title': _('Изменение задачи')}
+    extra_context = {'title': _('Changing the task')}
 
 
 class DeleteTaskView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):

@@ -7,18 +7,18 @@ from django.utils.translation import gettext as _
 
 class Task(models.Model):
     name = models.CharField(
-        verbose_name=_('Имя'),
+        verbose_name=_('Name'),
         max_length=75,
         unique=True
     )
     description = models.TextField(
-        verbose_name=_('Описание'),
+        verbose_name=_('Discriptions'),
         max_length=200,
         blank=True,
         null=True,
     )
     created_at = models.DateTimeField(
-        verbose_name=_('Дата создания'),
+        verbose_name=_('Created at'),
         auto_now_add=True
     )
     status = models.ForeignKey(
@@ -26,20 +26,20 @@ class Task(models.Model):
         blank=True,
         null=True,
         on_delete=models.PROTECT,
-        verbose_name=_('Статус')
+        verbose_name=_('Status')
     )
     creator = models.ForeignKey(
         User,
         on_delete=models.PROTECT,
-        verbose_name=_('Создатель')
+        verbose_name=_('Creator')
     )
     executor = models.ForeignKey(
         User,
-        verbose_name=_('Исполнитель'),
+        verbose_name=_('Executor'),
         on_delete=models.PROTECT,
         null=True,
         blank=True,
-        related_name=_('Испольнитель'),
+        related_name=_('Executor'),
     )
 
     labels = models.ManyToManyField(
@@ -47,7 +47,7 @@ class Task(models.Model):
         through='Task_Label',
         through_fields=('task_id', 'label_id'),
         blank=True,
-        verbose_name=_('Метки'),
+        verbose_name=_('Labels'),
     )
 
     @property

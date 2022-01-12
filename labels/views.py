@@ -11,10 +11,11 @@ from django.db.models import ProtectedError
 from django.utils.translation import gettext as _
 
 
-TAG_CREATE = _("Метка успешно создана")
-TAG_EDIT = _("Метка успешно изменена")
-TAG_DEL = _("Метка успешно удалена")
-TAG_NOT_DEL = _("Невозможно удалить метку, потому что она используется")
+TAG_CREATE = _("The label was created successfully")
+TAG_EDIT = _("Label changed successfully")
+TAG_DEL = _("The label was successfully deleted")
+TAG_NOT_DEL = _("It is not possible to delete the label \
+    because it is being used")
 
 
 class TagsListView(LoginRequiredMixin, ListView):

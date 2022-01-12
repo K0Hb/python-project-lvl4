@@ -9,6 +9,6 @@ class StatusesTable(tables.Table):
         template_name = "django_tables2/bootstrap4.html"
         fields = ('id', 'name', 'create_date', 'links')
         attrs = {
-            'button_name': _('Создать'),
+            'button_name': _('Create'),
             'class': 'table table-striped'
         }

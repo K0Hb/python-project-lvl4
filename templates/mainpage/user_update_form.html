@@ -2,45 +2,45 @@
 {% load i18n %}
 {% block title %}
     <head>
-         <title>{% trans "Изменение пользователя" %}</title>
+         <title>{% trans "Changing the user" %}</title>
     </head>
 {% endblock %}
 {% block content %}
   <div class="container wrapper flex-grow-1">    
     <h1 class="h2">
-        {% trans "Изменение пользователя" %}
+        {% trans "Changing the user" %}
     </h1>
     <div>
         <form method="post">
             {% csrf_token %}
 {#            {{ form.as_p }}#}
             <p>
-            <label for="id_username">{% trans "Имя пользователя" %}</label>
+            <label for="id_username">{% trans "User name" %}</label>
                   {{ form.username }}
-                <span class="help-tooltip">Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_.</span>
+                <span class="help-tooltip">{% trans "Required field. No more than 150 characters. Only letters, numbers and symbols" %} @/./+/-/_.</span>
             </p>
             <p>
-            <label for="id_first_name">Имя</label>
+            <label for="id_first_name">{% trans "Name" %}</label>
                   {{ form.first_name }}
             </p>
             <p>
-            <label for="id_last_name">Фамилия</label>
+            <label for="id_last_name">{% trans "Surname" %}</label>
                   {{ form.last_name }}
             </p>
             <p>
-            <label for="id_password1">Пароль</label>
+            <label for="id_password1">{% trans "Password" %}</label>
                   {{ form.password1 }}
             <span class="helptext"></span>
             <ul>
-                <li>Пароль не должен быть слишком похож на другую вашу личную информацию.</li>
-                <li>Ваш пароль должен содержать как минимум 8 символов.</li>
-                <li>Такой пароль часто используется.</li><li>Пароль не может состоять только из цифр.</li>
+                <li>{% trans 'The password should not be too similar to your other personal information.' %}</li>
+                <li>{% trans 'Your password must contain at least 8 characters.' %}</li>
+                <li>{% trans 'This password is often used.' %}</li><li>{% trans 'The password cannot consist only of digits.' %}</li>
             </ul>
             </p>
             <p>
-            <label for="id_password2">Подтверждение пароля</label>
+            <label for="id_password2">{% trans 'Password Confirmation' %}</label>
                   {{ form.password2 }}
-            <span class="helptext">Для подтверждения введите, пожалуйста, пароль ещё раз.</span>
+            <span class="helptext">% trans 'To confirm, please enter the password again.' %}</span>
             </p>
             <div class="form-group">
                 <input class="btn btn-primary" type="submit" value="Изменить">

@@ -3,19 +3,19 @@
 
 {% block title %}
     <head>
-         <title>{% trans "Удалине задачи" %}</title>
+         <title>{% trans "Deleting a task" %}</title>
     </head>
 {% endblock %}
 
 {% block content %}
   <div class="container wrapper flex-grow-1">    
     <h1 class="h2">
-        {% trans "Удалине задачи" %}
+        {% trans "Deleting a task" %}
     </h1>
     <div>
         <form method="post">
             {% csrf_token %}
-            <p>{% trans "Вы уверены, что хотите удалить" %} "{{ object }}"?</p>
+            <p>{% trans "Are you sure you want to delete" %} "{{ object }}"?</p>
             <input type="submit" value="Да, удалить" class='btn btn-danger'>
         </form>
       </div>

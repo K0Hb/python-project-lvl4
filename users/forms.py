@@ -10,19 +10,19 @@ class RegisterUserForm(UserCreationForm):
         self.fields['first_name'].required = True
         self.fields['last_name'].required = True
         self.fields['password1'].widget = forms.PasswordInput(
-            attrs={'class': 'form-control', 'placeholder': _('Пароль')})
+            attrs={'class': 'form-control', 'placeholder': _('Password')})
         self.fields['password2'].widget = forms.PasswordInput(
             attrs={'class': 'form-control',
-                   'placeholder': _('Подтверждение пароля')})
+                   'placeholder': _('Password Confirmation')})
         self.fields['username'].widget = forms.TextInput(
             attrs={'class': 'form-control',
-                   'placeholder': _('Имя пользователя')})
+                   'placeholder': _('User name')})
         self.fields['first_name'].widget = forms.TextInput(
             attrs={'class': 'form-control',
-                   'placeholder': _('Имя')})
+                   'placeholder': _('Name')})
         self.fields['last_name'].widget = forms.TextInput(
             attrs={'class': 'form-control',
-                   'placeholder': _('Фамилия')})
+                   'placeholder': _('Surname')})
 
     class Meta(UserCreationForm.Meta):
         fields = ['username', 'first_name', 'last_name']

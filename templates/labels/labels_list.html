@@ -3,7 +3,7 @@
 
 {% block title %}
     <head>
-         <title>{% trans "Список меток" %}</title>
+         <title>{% trans "List of labels" %}</title>
     </head>
 {% endblock %}
 
@@ -17,15 +17,15 @@
 {% endif %}
 <div class="container wrapper flex-grow-1">
     <h1 class="my-4 h2">
-        {% trans "Метки" %}
+        {% trans "Labels" %}
     </h1>
-    <a href='{% url "create_label" %}'>{% trans "Создать метку" %}</a>
+    <a href='{% url "create_label" %}'>{% trans "Create label" %}</a>
     <table class="table table-striped mt-2">
     <thead>
         <tr>
         <th scope="col">ID</th>
-        <th scope="col">{% trans "Имя" %}</th>
-        <th scope="col">{% trans "Дата создания" %}</th>
+        <th scope="col">{% trans "Name" %}</th>
+        <th scope="col">{% trans "Date of creation" %}</th>
         <th scope="col"></th>
         </tr>
     </thead>
@@ -37,8 +37,8 @@
             <td>{{ label.created_at }}</td>
             <td>
                 {% if user.id == request.user.id %}
-                    <a href='{% url "update_label" label.id %}'>{% trans "Изменить" %}</a> <br>
-                    <a href='{% url "delete_label" label.id %}'>{% trans "Удалить" %}</a>
+                    <a href='{% url "update_label" label.id %}'>{% trans "Change" %}</a> <br>
+                    <a href='{% url "delete_label" label.id %}'>{% trans "Delete" %}</a>
                 {% endif %}
             </td>
             </tr>

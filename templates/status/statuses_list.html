@@ -3,7 +3,7 @@
 
 {% block title %}
     <head>
-         <title>{% trans "Список статусов" %}</title>
+         <title>{% trans "List of statuses" %}</title>
     </head>
 {% endblock %}
 
@@ -17,15 +17,15 @@
 {% endif %}
 <div class="container wrapper flex-grow-1">
     <h1 class="my-4 h2">
-        {% trans "Статусы" %}
+        {% trans "Statuses" %}
     </h1>
-    <a href='{% url "create_status" %}'>{% trans "Создать статус" %}</a>
+    <a href='{% url "create_status" %}'>{% trans "Create status" %}</a>
     <table class="table table-striped mt-2">
     <thead>
         <tr>
         <th scope="col">ID</th>
-        <th scope="col">{% trans "Имя" %}</th>
-        <th scope="col">{% trans "Дата создания" %}</th>
+        <th scope="col">{% trans "Name" %}</th>
+        <th scope="col">{% trans "Date of creation" %}</th>
         <th scope="col"></th>
         </tr>
     </thead>
@@ -37,8 +37,8 @@
             <td>{{ status.created_at }}</td>
             <td>
                 {% if user.id == request.user.id %}
-                    <a href="{% url 'update_status' status.pk %}">{% trans "Изменить" %}</a> <br>
-                    <a href="{% url 'delete_status' status.pk %}">{% trans "Удалить" %}</a>
+                    <a href="{% url 'update_status' status.pk %}">{% trans "Change" %}</a> <br>
+                    <a href="{% url 'delete_status' status.pk %}">{% trans "Delete" %}</a>
                 {% endif %}
             </td>
             </tr>

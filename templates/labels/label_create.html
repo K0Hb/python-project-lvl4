@@ -3,22 +3,22 @@
 
 {% block title %}
     <head>
-         <title>{% trans "Добалвение метки" %}</title>
+         <title>{% trans "Adding a label" %}</title>
     </head>
 {% endblock %}
 
 {% block content %}
 <div class="container wrapper flex-grow-1">
   <h1 class="my-4">
-      {% trans "Создать метку" %}
+      {% trans "Create label" %}
   </h1>
   <div>
     <form id="add_form" method="post">
       {% csrf_token %}
-        <label for="id_name">{% trans 'Имя' %}</label>
+        <label for="id_name">{% trans 'Name' %}</label>
           {{ form.name }}
         <br />
-      <button type='submit' form="add_form" class="btn btn-primary">{% trans "Создать" %}</button>
+      <button type='submit' form="add_form" class="btn btn-primary">{% trans "Create" %}</button>
     </form>
   </div>
 </div>
