@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-12 19:39+0000\n"
+"POT-Creation-Date: 2022-01-12 19:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -285,7 +285,7 @@ msgstr "Пароль"
 #: templates/mainpage/user_update_form.html:35
 msgid ""
 "The password should not be too similar to your other personal information."
-msgstr "Пароль не должен быть слишком похож на другую вашу личную информацию."
+msgstr "Пароль не должен быть  слишком похож на другую вашу личную информацию."
 
 #: templates/mainpage/signup.html:35
 #: templates/mainpage/user_update_form.html:36
