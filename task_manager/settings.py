@@ -24,9 +24,9 @@ INSTALLED_APPS = [
     'django_tables2',
     'task_manager',
     'bootstrap4',
-    'main_page',
     'labels',
     'status',
+    'users',
     'tasks',
 ]
 

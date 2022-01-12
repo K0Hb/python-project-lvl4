@@ -1,7 +1,7 @@
 from django.db import models
 from status.models import Status
 from labels.models import Labels
-from main_page.models import MyUser as User
+from users.models import MyUser as User
 from django.utils.translation import gettext as _
 
 
@@ -44,8 +44,10 @@ class Task(models.Model):
 
     labels = models.ManyToManyField(
         Labels,
+        through='Task_Label',
+        through_fields=('task_id', 'label_id'),
         blank=True,
-        verbose_name=_('Метка'),
+        verbose_name=_('Метки'),
     )
 
     @property
@@ -54,3 +56,16 @@ class Task(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Task_Label(models.Model):
+    task_id = models.ForeignKey(
+        Task,
+        on_delete=models.CASCADE,
+        verbose_name=_('Task_id')
+        )
+    label_id = models.ForeignKey(
+        Labels,
+        on_delete=models.PROTECT,
+        verbose_name=_('Label_id')
+    )

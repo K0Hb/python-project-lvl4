@@ -1,6 +1,6 @@
 from django.shortcuts import redirect
 from django.views.generic.list import ListView
-from main_page.models import MyUser as User
+from users.models import MyUser as User
 from django.views.generic.base import TemplateView
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import RegisterUserForm  # noqa: F401

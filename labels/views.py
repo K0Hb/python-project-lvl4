@@ -10,6 +10,7 @@ from django.shortcuts import redirect
 from django.db.models import ProtectedError
 from django.utils.translation import gettext as _
 
+
 TAG_CREATE = _("Метка успешно создана")
 TAG_EDIT = _("Метка успешно изменена")
 TAG_DEL = _("Метка успешно удалена")

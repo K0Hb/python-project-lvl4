@@ -9,7 +9,7 @@ from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from tasks.forms import RegisterTaskForm
-from main_page.models import MyUser as User
+from users.models import MyUser as User
 from django.contrib import messages
 from tasks.tables import TasksTable
 from django_tables2 import SingleTableView
