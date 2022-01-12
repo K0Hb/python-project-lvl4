@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-12 20:03+0000\n"
+"POT-Creation-Date: 2022-01-12 20:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -174,7 +174,7 @@ msgstr "Удалить пользователя невозможно, так к�
 
 #: tasks/views.py:22
 msgid "The task has been successfully changed"
-msgstr "Задача была успешно изменена"
+msgstr "Задача успешно изменена"
 
 #: tasks/views.py:33 templates/tasks/tasks_list.html:22
 msgid "Create task"
