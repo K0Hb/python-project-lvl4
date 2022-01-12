@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-12 19:25+0000\n"
+"POT-Creation-Date: 2022-01-12 19:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,7 +58,9 @@ msgid "The label was successfully deleted"
 msgstr "Метка успешно удалена"
 
 #: labels/views.py:17
-msgid "It is not possible to delete the label because it is being used"
+#, fuzzy
+#| msgid "It is not possible to delete the label because it is being used"
+msgid "It is not possible to delete the label     because it is being used"
 msgstr "Удалить метку невозможно, так как она используется"
 
 #: status/models.py:16 tasks/forms.py:19 tasks/forms.py:25 tasks/models.py:29
@@ -89,22 +91,26 @@ msgid "Status successfully deleted"
 msgstr "Статус успешно удален"
 
 #: status/views.py:16
-msgid "It is not possible to delete the status because it is being used"
+#, fuzzy
+#| msgid "It is not possible to delete the status because it is being used"
+msgid ""
+"It is not possible to delete the                  status because it is being "
+"used"
 msgstr "Удалить статус невозможно, так как он используется"
 
-#: status/views.py:37 templates/status/statuses_list.html:22
+#: status/views.py:38 templates/status/statuses_list.html:22
 msgid "Create status"
 msgstr "Создать статус"
 
-#: status/views.py:38
+#: status/views.py:39
 msgid "Craete"
 msgstr "Создать"
 
-#: status/views.py:51
+#: status/views.py:52
 msgid "Status change"
 msgstr "Изменть статус"
 
-#: status/views.py:52 tasks/tables.py:18 templates/labels/label_update.html:21
+#: status/views.py:53 tasks/tables.py:18 templates/labels/label_update.html:21
 #: templates/labels/labels_list.html:40 templates/status/status_update.html:19
 #: templates/status/statuses_list.html:40 templates/tasks/task_update.html:19
 #: templates/tasks/task_view.html:54 templates/users_list.html:45
