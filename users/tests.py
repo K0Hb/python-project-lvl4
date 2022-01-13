@@ -43,7 +43,7 @@ class TaskTest(TestCase):
 
     def test_view_url(self):
         url_list = ['', "/users/", "/login/",
-                    "/users/create/", "/users/1/delete/", "/users/1/update/",
+                    "/users/create/", "/users/2/delete/", "/users/1/update/",
                     "/statuses/", "/statuses/create/", "/statuses/1/delete/",
                     "/tasks/", "/tasks/create/", "/tasks/1/delete/",
                     "/tasks/1/",
@@ -93,15 +93,6 @@ class TaskTest(TestCase):
         max_length = tag._meta.get_field('name').max_length
         self.assertEquals(max_length, 20)
 
-    def test_delete_user(self):
-        user3 = User.objects.create_user(username='lol3',
-                            password='19911')
-        user3.save()
-        self.client.login(username='lol3', password='19911')
-        response = self.client.post(reverse('delete_user', args='1'))
-        self.assertEqual(response.status_code, 302)
-        self.assertFalse(User.objects.filter(pk=3))
-
     def test_update_user(self):
         self.client.login(username='lol1', password='12345')
         response = self.client.post(reverse('update_user', args='1'), {
@@ -117,8 +108,8 @@ class TaskTest(TestCase):
         self.assertEqual('lol_test', User.objects.get(pk=1).username)
 
     def test__protect_delete_user(self):
-        e = User.objects.filter(pk=1)
+        user_protect = User.objects.filter(pk=1)
         try:
-            e.delete()
+            user_protect.delete()
         except ProtectedError:
             self.assertTrue(User.objects.get(pk=1))
