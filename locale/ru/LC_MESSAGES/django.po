@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-13 07:36+0000\n"
+"POT-Creation-Date: 2022-01-13 09:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgstr ""
 #: templates/labels/label_create.html:18 templates/labels/label_update.html:18
 #: templates/labels/labels_list.html:27 templates/mainpage/signup.html:22
 #: templates/mainpage/user_update_form.html:23
-#: templates/status/statuses_list.html:27 users/forms.py:22
+#: templates/status/statuses_list.html:27 users/forms.py:32
 msgid "Name"
 msgstr "Имя"
 
@@ -263,7 +263,7 @@ msgstr "Войти"
 
 #: templates/mainpage/signup.html:17
 #: templates/mainpage/user_update_form.html:18 templates/users_list.html:29
-#: users/forms.py:19
+#: users/forms.py:29
 msgid "User name"
 msgstr "Имя пользователя"
 
@@ -276,12 +276,12 @@ msgstr ""
 "Обязательное поле. Не более 150 символов. Только буквы, цифры и символы"
 
 #: templates/mainpage/signup.html:26
-#: templates/mainpage/user_update_form.html:27 users/forms.py:25
+#: templates/mainpage/user_update_form.html:27 users/forms.py:35
 msgid "Surname"
 msgstr "Фамилия"
 
 #: templates/mainpage/signup.html:30
-#: templates/mainpage/user_update_form.html:31 users/forms.py:13
+#: templates/mainpage/user_update_form.html:31 users/forms.py:23
 msgid "Password"
 msgstr "Пароль"
 
@@ -307,7 +307,7 @@ msgid "The password cannot consist only of digits."
 msgstr "Пароль не может состоять только из цифр."
 
 #: templates/mainpage/signup.html:40
-#: templates/mainpage/user_update_form.html:41 users/forms.py:16
+#: templates/mainpage/user_update_form.html:41 users/forms.py:26
 msgid "Password Confirmation"
 msgstr "Подтверждение пароля"
 

@@ -1,7 +1,7 @@
 from django.db import models
 from status.models import Status
 from labels.models import Labels
-from users.models import MyUser as User
+from users.models import User
 from django.utils.translation import gettext as _
 
 
