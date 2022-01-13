@@ -1,9 +1,10 @@
 from django.test import TestCase
-from django.contrib.auth.models import User
+from users.models import User
 from status.models import Status
 from django.urls import reverse
 from tasks.models import Task
 from labels.models import Labels
+from django.db.models import ProtectedError
 
 
 class TaskTest(TestCase):
@@ -34,7 +35,7 @@ class TaskTest(TestCase):
             name='Down1',
             description='Ou1!',
             status=status1,
-            creator=user1,
+            creator=user2,
             executor=user2,
         )
         task1.save()
@@ -65,19 +66,6 @@ class TaskTest(TestCase):
             self.assertEqual(resp_all.status_code, 200)
             self.assertEqual(len(resp_all.context[iter_name]), 2)
 
-    # def test_del_user(self):
-    #     self.client.login(username='lol2', password='19911')
-    #     response = self.client.post(reverse('users:delete_user', args='1'))
-    #     # self.assertTrue(User.objects.filter(pk=1))
-    #     self.assertEqual(response.status_code, 302)
-    #     self.assertFalse(User.objects.filter(pk=1))
-
-    def test_user_login(self):
-        self.client.login(username='lol1', password='12345')
-        resp = self.client.get(reverse('statuses'))
-        self.assertEqual(str(resp.context['user']), 'lol1')
-        self.assertEqual(resp.status_code, 200)
-
     def test_status(self):
         task_status = Status.objects.get(id=1)
         self.assertTrue(isinstance(task_status, Status))
@@ -104,3 +92,33 @@ class TaskTest(TestCase):
         self.assertTrue(isinstance(tag, Labels))
         max_length = tag._meta.get_field('name').max_length
         self.assertEquals(max_length, 20)
+
+    def test_delete_user(self):
+        user3 = User.objects.create_user(username='lol3',
+                            password='19911')
+        user3.save()
+        self.client.login(username='lol3', password='19911')
+        response = self.client.post(reverse('delete_user', args='1'))
+        self.assertEqual(response.status_code, 302)
+        self.assertFalse(User.objects.filter(pk=3))
+
+    def test_update_user(self):
+        self.client.login(username='lol1', password='12345')
+        response = self.client.post(reverse('update_user', args='1'), {
+            'first_name': 'lol_new',
+            'last_name': 'lol_f',
+            'username': 'lol_test',
+            'password1': '12345test',
+            'password2': '12345test',
+        }
+        )
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual('lol_new', User.objects.get(pk=1).first_name)
+        self.assertEqual('lol_test', User.objects.get(pk=1).username)
+
+    def test__protect_delete_user(self):
+        e = User.objects.filter(pk=1)
+        try:
+            e.delete()
+        except ProtectedError:
+            self.assertTrue(User.objects.get(pk=1))
