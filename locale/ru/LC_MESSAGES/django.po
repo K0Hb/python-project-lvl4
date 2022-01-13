@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-12 20:07+0000\n"
+"POT-Creation-Date: 2022-01-13 07:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -124,6 +124,10 @@ msgstr "Английский"
 #: task_manager/settings.py:95
 msgid "Russian"
 msgstr "Русский"
+
+#: tasks/filters.py:11
+msgid "Only your own tasks"
+msgstr "Только свои задачи"
 
 #: tasks/forms.py:18 tasks/models.py:34 templates/tasks/task_view.html:19
 msgid "Creator"
@@ -251,7 +255,7 @@ msgstr "Удаление пользователя"
 
 #: templates/mainpage/delete_user.html:21
 msgid "You dont have the rights to change another user."
-msgstr ""
+msgstr "У вас нет прав изменять другого пользователя."
 
 #: templates/mainpage/login.html:25
 msgid "Enter"

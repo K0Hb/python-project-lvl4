@@ -8,7 +8,7 @@ from django.utils.translation import gettext as _
 
 class TaskFilter(django_filters.FilterSet):
     own_tasks = django_filters.BooleanFilter(
-        label='Только свои задачи',
+        label=_('Only your own tasks'),
         method='filter_own_tasks',
         field_name='creator',
         widget=CheckboxInput

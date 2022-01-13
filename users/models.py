@@ -14,7 +14,7 @@ class MyUser(User):
     # max_length=150,
     # blank=True,
     # null=True,
-    # verbose_name=_('Полное имя'))
+    # verbose_name=_('Full name'))
 
     # def save(self, *args, **kw):
     #     self.full_name =f'{self.first_name} {self.last_name}'

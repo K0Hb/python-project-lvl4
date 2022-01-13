@@ -78,3 +78,4 @@ class TasksListView(LoginRequiredMixin, FilterView, SingleTableView):
     template_name = 'tasks/tasks_list.html'
     filterset_class = TaskFilter
     table_class = TasksTable
+    context_object_name = 'tasks_list'
