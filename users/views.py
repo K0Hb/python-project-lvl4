@@ -37,6 +37,10 @@ class RegisterUserView(SuccessMessageMixin, CreateView):
     success_url = reverse_lazy('login_page')
     form_class = RegisterUserForm
     success_message = USER_REG
+    extra_context = {
+        'title': 'Registration',
+        'button_name': _('Register')
+    }
 
 
 class UserLoginView(SuccessMessageMixin, LoginView):
