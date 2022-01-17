@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-17 12:10+0000\n"
+"POT-Creation-Date: 2022-01-17 12:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,7 +23,7 @@ msgstr ""
 #: labels/forms.py:13 labels/forms.py:19 labels/models.py:7 status/forms.py:13
 #: status/models.py:8 tasks/forms.py:23 tasks/models.py:10
 #: templates/labels/label_create.html:18 templates/labels/label_update.html:18
-#: templates/labels/labels_list.html:27 templates/mainpage/signup.html:33
+#: templates/labels/labels_list.html:27
 #: templates/mainpage/user_update_form.html:23
 #: templates/status/statuses_list.html:27 users/forms.py:32
 msgid "Name"
@@ -231,7 +231,7 @@ msgid "Login"
 msgstr "Вход"
 
 #: templates/main_template.html:29 templates/mainpage/signup.html:6
-#: templates/mainpage/signup.html:23
+#: users/views.py:41
 msgid "Registration"
 msgstr "Регистрация"
 
@@ -261,13 +261,16 @@ msgstr "У вас нет прав изменять другого пользов
 msgid "Enter"
 msgstr "Войти"
 
-#: templates/mainpage/signup.html:28
+#: templates/mainpage/user_update_form.html:5
+#: templates/mainpage/user_update_form.html:11
+msgid "Changing the user"
+msgstr "Изменение пользователя"
+
 #: templates/mainpage/user_update_form.html:18 templates/users_list.html:29
 #: users/forms.py:29
 msgid "User name"
 msgstr "Имя пользователя"
 
-#: templates/mainpage/signup.html:30
 #: templates/mainpage/user_update_form.html:20
 msgid ""
 "Required field. No more than 150 characters. Only letters, numbers and "
@@ -275,50 +278,34 @@ msgid ""
 msgstr ""
 "Обязательное поле. Не более 150 символов. Только буквы, цифры и символы"
 
-#: templates/mainpage/signup.html:37
 #: templates/mainpage/user_update_form.html:27 users/forms.py:35
 msgid "Surname"
 msgstr "Фамилия"
 
-#: templates/mainpage/signup.html:41
 #: templates/mainpage/user_update_form.html:31 users/forms.py:23
 msgid "Password"
 msgstr "Пароль"
 
-#: templates/mainpage/signup.html:45
 #: templates/mainpage/user_update_form.html:35
 msgid ""
 "The password should not be too similar to your other personal information."
 msgstr "Пароль не должен быть  слишком похож на другую вашу личную информацию."
 
-#: templates/mainpage/signup.html:46
 #: templates/mainpage/user_update_form.html:36
 msgid "Your password must contain at least 8 characters."
 msgstr "Ваш пароль должен содержать не менее 8 символов."
 
-#: templates/mainpage/signup.html:47
 #: templates/mainpage/user_update_form.html:37
 msgid "This password is often used."
 msgstr "Этот пароль часто используется."
 
-#: templates/mainpage/signup.html:47
 #: templates/mainpage/user_update_form.html:37
 msgid "The password cannot consist only of digits."
 msgstr "Пароль не может состоять только из цифр."
 
-#: templates/mainpage/signup.html:51
 #: templates/mainpage/user_update_form.html:41 users/forms.py:26
 msgid "Password Confirmation"
 msgstr "Подтверждение пароля"
-
-#: templates/mainpage/signup.html:53
-msgid "To confirm, please enter the password again."
-msgstr "Для подтверждения, пожалуйста, введите пароль еще раз."
-
-#: templates/mainpage/user_update_form.html:5
-#: templates/mainpage/user_update_form.html:11
-msgid "Changing the user"
-msgstr "Изменение пользователя"
 
 #: templates/status/status_update.html:8
 msgid "Editing the status"
@@ -401,7 +388,10 @@ msgstr "Пользователь успешно изменён"
 #, fuzzy
 #| msgid "Registration"
 msgid "Register"
-msgstr "Регистрация"
+msgstr "Зарегистрировать"
+
+#~ msgid "To confirm, please enter the password again."
+#~ msgstr "Для подтверждения, пожалуйста, введите пароль еще раз."
 
 #~ msgid "You don"
 #~ msgstr "У вас нет прав изменять другого пользователя."
