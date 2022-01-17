@@ -23,8 +23,6 @@ class Task(models.Model):
     )
     status = models.ForeignKey(
         Status,
-        blank=True,
-        null=True,
         on_delete=models.PROTECT,
         verbose_name=_('Status')
     )
@@ -47,6 +45,7 @@ class Task(models.Model):
         through='Task_Label',
         through_fields=('task_id', 'label_id'),
         blank=True,
+        null=True,
         verbose_name=_('Labels'),
     )
 
