@@ -39,7 +39,7 @@ class RegisterUserView(SuccessMessageMixin, CreateView):
     success_message = USER_REG
     extra_context = {
         'title': _('Registration'),
-        'button_name': _('Зарегистрировать')
+        'button_name': _('Register')
     }
 
 

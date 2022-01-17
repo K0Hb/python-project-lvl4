@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-17 12:49+0000\n"
+"POT-Creation-Date: 2022-01-17 13:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,7 +35,7 @@ msgstr "Имя"
 msgid "Date of creation"
 msgstr "Дата создания"
 
-#: labels/models.py:17 tasks/forms.py:27 tasks/models.py:50
+#: labels/models.py:17 tasks/forms.py:27 tasks/models.py:49
 #: templates/labels/labels_list.html:20 templates/main_template.html:42
 #: templates/tasks/task_view.html:40
 msgid "Labels"
@@ -63,7 +63,7 @@ msgstr "Метка успешно удалена"
 msgid "It is not possible to delete the label     because it is being used"
 msgstr "Удалить метку невозможно, так как она используется"
 
-#: status/models.py:16 tasks/forms.py:19 tasks/forms.py:25 tasks/models.py:29
+#: status/models.py:16 tasks/forms.py:19 tasks/forms.py:25 tasks/models.py:27
 #: templates/tasks/task_view.html:27
 msgid "Status"
 msgstr "Статус"
@@ -90,12 +90,10 @@ msgstr "Статус успешно изменён"
 msgid "Status successfully deleted"
 msgstr "Статус успешно удалён"
 
-#: status/views.py:16
+#: status/views.py:17
 #, fuzzy
-#| msgid "It is not possible to delete the status because it is being used"
-msgid ""
-"It is not possible to delete the                  status because it is being "
-"used"
+#| msgid "It is not possible to delete a user because it is being used"
+msgid "It is not possible to delete the status because it is being used"
 msgstr "Удалить статус невозможно, так как он используется"
 
 #: status/views.py:38 templates/status/statuses_list.html:22
@@ -129,7 +127,7 @@ msgstr "Русский"
 msgid "Only your own tasks"
 msgstr "Только свои задачи"
 
-#: tasks/forms.py:18 tasks/models.py:34 templates/tasks/task_view.html:19
+#: tasks/forms.py:18 tasks/models.py:32 templates/tasks/task_view.html:19
 msgid "Creator"
 msgstr "Создатель"
 
@@ -137,7 +135,7 @@ msgstr "Создатель"
 msgid "Discription"
 msgstr "Описание"
 
-#: tasks/forms.py:26 tasks/models.py:38 tasks/models.py:42
+#: tasks/forms.py:26 tasks/models.py:36 tasks/models.py:40
 #: templates/tasks/task_view.html:23
 msgid "Executor"
 msgstr "Исполнитель"
@@ -150,11 +148,11 @@ msgstr "Описания"
 msgid "Created at"
 msgstr "Дата создания"
 
-#: tasks/models.py:65
+#: tasks/models.py:64
 msgid "Task_id"
 msgstr "id задачи"
 
-#: tasks/models.py:70
+#: tasks/models.py:69
 msgid "Label_id"
 msgstr "id метки"
 
@@ -260,6 +258,12 @@ msgstr "У вас нет прав изменять другого пользов
 #: templates/mainpage/login.html:25
 msgid "Enter"
 msgstr "Войти"
+
+#: templates/mainpage/signup.html:16
+#, fuzzy
+#| msgid "Registration"
+msgid "Register"
+msgstr "Зарегистрировать"
 
 #: templates/mainpage/user_update_form.html:5
 #: templates/mainpage/user_update_form.html:11
@@ -384,305 +388,7 @@ msgstr "Пользователь успешно удалён"
 msgid "User successfully changed"
 msgstr "Пользователь успешно изменён"
 
-#: users/views.py:42
 #, fuzzy
-#| msgid "Registration"
-msgid "Register"
-msgstr "Зарегистрировать"
-
-#~ msgid "To confirm, please enter the password again."
-#~ msgstr "Для подтверждения, пожалуйста, введите пароль еще раз."
-
-#~ msgid "You don"
-#~ msgstr "У вас нет прав изменять другого пользователя."
-
-#~ msgid "Пользователь"
-#~ msgstr "User"
-
-#~ msgid "Craetor"
-#~ msgstr "Создаетль"
-
-#~ msgid "Изменить"
-#~ msgstr "Change"
-
-#~ msgid "Создать метку"
-#~ msgstr "Create label"
-
-#~ msgid "Статусы"
-#~ msgstr "Statuses"
-
-#~ msgid "Имя"
-#~ msgstr "Name"
-
-#~ msgid "Дата создания"
-#~ msgstr "Created at"
-
-#~ msgid "Метки"
-#~ msgstr "Labels"
-
-#~ msgid "Метка"
-#~ msgstr "Label"
-
-#, fuzzy
-#~| msgid "Пользователь"
-#~ msgid "Метка успешно создана"
-#~ msgstr "User"
-
-#, fuzzy
-#~| msgid "Пользователь"
-#~ msgid "Метка успешно изменена"
-#~ msgstr "User"
-
-#, fuzzy
-#~| msgid "Пользователь"
-#~ msgid "Метка успешно удалена"
-#~ msgstr "User"
-
-#, fuzzy
-#~| msgid "Невозможно удалить статус, потому что он используется"
-#~ msgid "Невозможно удалить метку, потому что она используется"
-#~ msgstr "It is not possible to delete the status because it is being used"
-
-#~ msgid "Статус"
-#~ msgstr "Status"
-
-#~ msgid "Создать"
-#~ msgstr "Create"
-
-#, fuzzy
-#~| msgid "Пользователь"
-#~ msgid "Статус успешно создан"
-#~ msgstr "User"
-
-#, fuzzy
-#~| msgid "Пользователь"
-#~ msgid "Статус успешно изменён"
-#~ msgstr "User"
-
-#, fuzzy
-#~| msgid "Пользователь"
-#~ msgid "Статус успешно удалён"
-#~ msgstr "User"
-
-#~ msgid "Невозможно удалить статус, потому что он используется"
-#~ msgstr "It is not possible to delete the status because it is being used"
-
-#~ msgid "Создать статус"
-#~ msgstr "Create status"
-
-#~ msgid "Изменение статуса"
-#~ msgstr "Status change"
-
-#~ msgid "Английский"
-#~ msgstr "English"
-
-#~ msgid "Русский"
-#~ msgstr "Russian"
-
-#~ msgid "Создатель"
-#~ msgstr "Creator"
-
-#~ msgid "Описание"
-#~ msgstr "Description"
-
-#~ msgid "Исполнитель"
-#~ msgstr "Creator"
-
-#, fuzzy
-#~| msgid "Исполнитель"
-#~ msgid "Испольнитель"
-#~ msgstr "Creator"
-
-#~ msgid "Удалить"
-#~ msgstr "Delete"
-
-#, fuzzy
-#~| msgid "Пользователь"
-#~ msgid "Задача успешно создана"
-#~ msgstr "User"
-
-#, fuzzy
-#~| msgid "Пользователь"
-#~ msgid "Задача успешно удалена"
-#~ msgstr "User"
-
-#~ msgid "Невозможно удалить пользователя, потому что он используется"
-#~ msgstr "It is not possible to delete a user because it is being used"
-
-#, fuzzy
-#~| msgid "Пользователь"
-#~ msgid "Задача успешно изменена"
-#~ msgstr "User"
-
-#~ msgid "Создать задачу"
-#~ msgstr "Create task"
-
-#, fuzzy
-#~| msgid "Добалвение задачи"
-#~ msgid "Изменение задачи"
-#~ msgstr "Add task"
-
-#~ msgid "Домашняя страница"
-#~ msgstr "Home page"
-
-#~ msgid "Добалвение метки"
-#~ msgstr "Add label"
-
-#~ msgid "Удалине метки"
-#~ msgstr "Delete label"
-
-#~ msgid "Вы уверены, что хотите удалить"
-#~ msgstr "Are you sure you want to delete"
-
-#~ msgid "Редактирование метки"
-#~ msgstr "Editing a label"
-
-#~ msgid "Изменение метки"
-#~ msgstr "Editing a label"
-
-#~ msgid "Список меток"
-#~ msgstr "List of labels"
-
-#~ msgid "Мененджер задач"
-#~ msgstr "Task manager"
-
-#~ msgid "Пользователи"
-#~ msgstr "Users"
-
-#~ msgid "Вход"
-#~ msgstr "Log in"
-
-#~ msgid "Регистрация"
+#~| msgid "Регистрация"
+#~ msgid "Зарегистрировать"
 #~ msgstr "Registration"
-
-#~ msgid "Задачи"
-#~ msgstr "Tasks"
-
-#~ msgid "Выход"
-#~ msgstr "Log out"
-
-#, fuzzy
-#~| msgid "Список пользователей"
-#~ msgid "Удаление пользователя"
-#~ msgstr "List of users"
-
-#~ msgid "У вас нет прав для изменения другого пользователя."
-#~ msgstr "You don't have the rights to change another user."
-
-#~ msgid "Войти"
-#~ msgstr "Login"
-
-#, fuzzy
-#~| msgid "Пользователь"
-#~ msgid "Имя пользователя"
-#~ msgstr "User"
-
-#~ msgid "Фамилия"
-#~ msgstr "Last name"
-
-#~ msgid "Пароль"
-#~ msgstr "Password"
-
-#, fuzzy
-#~| msgid "Редактирование задачи"
-#~ msgid "Подтверждение пароля"
-#~ msgstr "Editing task"
-
-#, fuzzy
-#~| msgid "Изменение задачи"
-#~ msgid "Изменение пользователя"
-#~ msgstr "Changing the task"
-
-#~ msgid "Редактирование статуса"
-#~ msgstr "Editing the status"
-
-#~ msgid "Добалвение статуса"
-#~ msgstr "Add status"
-
-#~ msgid "Удалине статуса"
-#~ msgstr "Deleting a status"
-
-#~ msgid "Список статусов"
-#~ msgstr "List of statuses"
-
-#~ msgid "Добалвение задачи"
-#~ msgstr "Add task"
-
-#~ msgid "Удалине задачи"
-#~ msgstr "Delete task"
-
-#~ msgid "Редактирование задачи"
-#~ msgstr "Editing task"
-
-#~ msgid "Просмотр задачи"
-#~ msgstr "Viewing a task"
-
-#~ msgid "Автор"
-#~ msgstr "Author"
-
-#~ msgid "Список меток пустой"
-#~ msgstr "The list of labels is empty"
-
-#~ msgid "Список задач"
-#~ msgstr "Task list"
-
-#~ msgid "Показать"
-#~ msgstr "View"
-
-#~ msgid "Список пользователей"
-#~ msgstr "List of users"
-
-#~ msgid "Полное имя"
-#~ msgstr "Full name"
-
-#~ msgid "Список пользователей пустой"
-#~ msgstr "The list of users is empty"
-
-#~ msgid "Пользователь успешно зарегистрирован"
-#~ msgstr "The user has been successfully registered"
-
-#~ msgid "Вы залогинены"
-#~ msgstr "You are logged in"
-
-#~ msgid "Вы разлогинены"
-#~ msgstr "You are logged out"
-
-#, fuzzy
-#~| msgid "Пользователь"
-#~ msgid "Пользователь успешно удалён"
-#~ msgstr "User"
-
-#, fuzzy
-#~| msgid "Пользователь"
-#~ msgid "Пользователь успешно изменён"
-#~ msgstr "User"
-
-#~ msgid "Админка"
-#~ msgstr "Admin-page"
-
-#~ msgid "Авторизация"
-#~ msgstr "Authorization"
-
-#~ msgid ""
-#~ "Ваше имя пользователя и пароль не совпадают. Пожалуйста, попробуйте снова."
-#~ msgstr "Your username and password don't match. Please try again."
-
-#~ msgid "Пожалуйста, войдите, чтобы увидеть эту страницу."
-#~ msgstr "Пожалуйста, войдите, чтобы увидеть эту страницу."
-
-#, fuzzy
-#~| msgid "Авторизация"
-#~ msgid "Авторизоваться"
-#~ msgstr "Authorization"
-
-#~ msgid "Только свои задачи"
-#~ msgstr "Only your own tasks"
-
-#~ msgid "Сброс"
-#~ msgstr "Reset"
-
-#~ msgid "Почта"
-#~ msgstr "Email"
-
-#~ msgid "удалить"
-#~ msgstr "Delete"

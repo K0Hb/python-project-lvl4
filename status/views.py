@@ -13,8 +13,8 @@ from django.utils.translation import gettext as _
 STAT_CREATE = _("Status successfully created")
 STAT_EDIT = _("Status successfully changed")
 STAT_DEL = _("Status successfully deleted")
-STAT_NOT_DEL = _("It is not possible to delete the \
-                 status because it is being used")
+STAT_NOT_DEL = \
+    _("It is not possible to delete the status because it is being used")
 
 
 class StatusesListView(LoginRequiredMixin, ListView):
