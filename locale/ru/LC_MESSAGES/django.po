@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-18 09:07+0000\n"
+"POT-Creation-Date: 2022-01-18 18:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,7 +35,7 @@ msgstr "Имя"
 msgid "Date of creation"
 msgstr "Дата создания"
 
-#: labels/models.py:17 tasks/forms.py:27 tasks/models.py:49
+#: labels/models.py:17 tasks/forms.py:27 tasks/models.py:48
 #: templates/labels/labels_list.html:20 templates/main_template.html:42
 #: templates/tasks/task_view.html:40
 msgid "Labels"
@@ -58,15 +58,14 @@ msgid "The label was successfully deleted"
 msgstr "Метка успешно удалена"
 
 #: labels/views.py:18
-#| msgid "It is not possible to delete the label because it is being used"
 msgid "It is not possible to delete the label because it is being used"
 msgstr "Удалить метку невозможно, так как она используется"
 
-#: labels/views.py:19 status/views.py:19 tasks/views.py:24
+#: labels/views.py:19 status/views.py:19 tasks/views.py:24 users/views.py:24
 msgid "You are not authenticated"
 msgstr "Вы не прошли проверку аутентификации"
 
-#: status/models.py:16 tasks/forms.py:19 tasks/forms.py:25 tasks/models.py:28
+#: status/models.py:16 tasks/forms.py:19 tasks/forms.py:25 tasks/models.py:27
 #: templates/tasks/task_view.html:27
 msgid "Status"
 msgstr "Статус"
@@ -94,7 +93,6 @@ msgid "Status successfully deleted"
 msgstr "Статус успешно удалён"
 
 #: status/views.py:18
-#| msgid "It is not possible to delete a user because it is being used"
 msgid "It is not possible to delete the status because it is being used"
 msgstr "Удалить статус невозможно, так как он используется"
 
@@ -129,7 +127,7 @@ msgstr "Русский"
 msgid "Only your own tasks"
 msgstr "Только свои задачи"
 
-#: tasks/forms.py:18 tasks/models.py:33 templates/tasks/task_view.html:19
+#: tasks/forms.py:18 tasks/models.py:32 templates/tasks/task_view.html:19
 msgid "Creator"
 msgstr "Создатель"
 
@@ -137,7 +135,7 @@ msgstr "Создатель"
 msgid "Discription"
 msgstr "Описание"
 
-#: tasks/forms.py:26 tasks/models.py:37 tasks/models.py:41
+#: tasks/forms.py:26 tasks/models.py:36 tasks/models.py:40
 #: templates/tasks/task_view.html:23
 msgid "Executor"
 msgstr "Исполнитель"
@@ -150,11 +148,11 @@ msgstr "Описания"
 msgid "Created at"
 msgstr "Дата создания"
 
-#: tasks/models.py:64
+#: tasks/models.py:63
 msgid "Task_id"
 msgstr "id задачи"
 
-#: tasks/models.py:69
+#: tasks/models.py:68
 msgid "Label_id"
 msgstr "id метки"
 
@@ -172,7 +170,7 @@ msgstr "Задача успешно создана"
 msgid "The task was successfully deleted"
 msgstr "Задача успешно удалена"
 
-#: tasks/views.py:22 users/views.py:20
+#: tasks/views.py:22 users/views.py:22
 msgid "It is not possible to delete a user because it is being used"
 msgstr "Удалить пользователя невозможно, так как он используется"
 
@@ -235,12 +233,11 @@ msgid "Login"
 msgstr "Вход"
 
 #: templates/main_template.html:29 templates/mainpage/signup.html:6
-#: users/views.py:41
+#: users/views.py:45
 msgid "Registration"
 msgstr "Регистрация"
 
 #: templates/main_template.html:33
-#, fuzzy
 #| msgid "Users"
 msgid "User"
 msgstr "Пользователи"
@@ -311,6 +308,10 @@ msgstr "Пароль не может состоять только из цифр
 msgid "Password Confirmation"
 msgstr "Подтверждение пароля"
 
+#: templates/mainpage/user_update_form.html:43
+msgid "To confirm, please enter the password again."
+msgstr "Для подтверждения, пожалуйста, введите пароль еще раз."
+
 #: templates/status/status_update.html:8
 msgid "Editing the status"
 msgstr "Изменеие статуса"
@@ -368,32 +369,34 @@ msgstr "Полное имя"
 msgid "The list of users is empty"
 msgstr "Список пользователей пуст"
 
-#: users/views.py:15
+#: users/views.py:17
 msgid "The user has been successfully registered"
 msgstr "Пользователь успешно зарегистрирован"
 
-#: users/views.py:16
+#: users/views.py:18
 msgid "You are logged in"
 msgstr "Вы залогинены"
 
-#: users/views.py:17
+#: users/views.py:19
 msgid "You are logged out"
 msgstr "Вы разлогинены"
 
-#: users/views.py:18
+#: users/views.py:20
 msgid "The user has been successfully deleted"
 msgstr "Пользователь успешно удалён"
 
-#: users/views.py:21
+#: users/views.py:23
 msgid "User successfully changed"
 msgstr "Пользователь успешно изменён"
 
-#: users/views.py:42
-#| msgid "Registration"
+#: users/views.py:25
+msgid "Only the user can delete himself"
+msgstr "Только пользователь может удалить себя"
+
+#: users/views.py:46
 msgid "Register"
 msgstr "Зарегистрировать"
 
-#, fuzzy
 #~| msgid "Регистрация"
 #~ msgid "Зарегистрировать"
 #~ msgstr "Registration"

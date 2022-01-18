@@ -23,7 +23,6 @@ class Task(models.Model):
     )
     status = models.ForeignKey(
         Status,
-        null=True,
         on_delete=models.PROTECT,
         verbose_name=_('Status')
     )

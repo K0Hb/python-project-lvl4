@@ -41,13 +41,13 @@ class ViewTest(TestCase):
         task2.save()
 
     def test_view_url(self):
+        self.client.login(username='lol1', password='12345')
         url_list = ['', "/users/", "/login/",
-                    "/users/create/", "/users/2/delete/", "/users/1/update/",
+                    "/users/create/", "/users/1/delete/", "/users/1/update/",
                     "/statuses/", "/statuses/create/", "/statuses/1/delete/",
                     "/tasks/", "/tasks/create/", "/tasks/1/delete/",
                     "/tasks/1/",
                     "/labels/", "/labels/create/", "/labels/1/delete/"]
-        self.client.login(username='lol1', password='12345')
         for url in url_list:
             resp = self.client.get(url)
             self.assertEqual(resp.status_code, 200)

@@ -8,6 +8,8 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.views import LoginView, LogoutView
+from task_manager.custom_mixin import AuthenticationVerification
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from django.utils.translation import gettext as _
 from tasks.models import Task
@@ -19,6 +21,8 @@ USER_DEL = _('The user has been successfully deleted')
 USER_NOT_DEL = _(
     'It is not possible to delete a user because it is being used')
 USER_UPD = _('User successfully changed')
+USER_NOT_LOG = _('You are not authenticated')
+USER_NOT_CREATOR = _('Only the user can delete himself')
 
 
 class HomePageView(TemplateView):
@@ -62,11 +66,15 @@ class UserLogout(SuccessMessageMixin, LogoutView):
         return response
 
 
-class UserDeleteView(SuccessMessageMixin, DeleteView):
+class UserDeleteView(AuthenticationVerification, SuccessMessageMixin,
+                     LoginRequiredMixin, DeleteView):
     model = User
     success_url = reverse_lazy('users_page')
     template_name = 'mainpage/delete_user.html'
     success_message = USER_DEL
+    message_not_authenticated = USER_NOT_CREATOR
+    memessage_not_login = USER_NOT_LOG
+    redirect_url_not_authenticated = 'users_page'
 
     def delete(self, request, *args, **kwargs):
         if Task.objects.filter(creator=self.request.user.pk) \
@@ -77,10 +85,32 @@ class UserDeleteView(SuccessMessageMixin, DeleteView):
         messages.success(self.request, self.success_message)
         return super().delete(request, *args, **kwargs)
 
+    def get(self, request, pk):
+        object = self.get_object()
+        if object.pk != self.request.user.pk:
+            messages.error(
+                self.request, self.message_not_authenticated,
+            )
+            return redirect(self.redirect_url_not_authenticated)
+        return super().get(request, pk)
 
-class UserUpdateView(SuccessMessageMixin, UpdateView):
+
+class UserUpdateView(AuthenticationVerification, SuccessMessageMixin,
+                     LoginRequiredMixin, UpdateView):
     model = User
     template_name = 'mainpage/user_update_form.html'
     success_url = reverse_lazy('users_page')
     success_message = USER_UPD
     form_class = RegisterUserForm
+    message_not_authenticated = USER_NOT_CREATOR
+    memessage_not_login = USER_NOT_LOG
+    redirect_url_not_authenticated = 'users_page'
+
+    def get(self, request, pk):
+        object = self.get_object()
+        if object.pk != self.request.user.pk:
+            messages.error(
+                self.request, self.message_not_authenticated,
+            )
+            return redirect(self.redirect_url_not_authenticated)
+        return super().get(request, pk)
