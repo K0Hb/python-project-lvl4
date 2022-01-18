@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-17 18:25+0000\n"
+"POT-Creation-Date: 2022-01-18 09:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,10 +57,9 @@ msgstr "Метка успешно изменена"
 msgid "The label was successfully deleted"
 msgstr "Метка успешно удалена"
 
-#: labels/views.py:17
-#, fuzzy
+#: labels/views.py:18
 #| msgid "It is not possible to delete the label because it is being used"
-msgid "It is not possible to delete the label     because it is being used"
+msgid "It is not possible to delete the label because it is being used"
 msgstr "Удалить метку невозможно, так как она используется"
 
 #: labels/views.py:19 status/views.py:19 tasks/views.py:24
@@ -95,7 +94,6 @@ msgid "Status successfully deleted"
 msgstr "Статус успешно удалён"
 
 #: status/views.py:18
-#, fuzzy
 #| msgid "It is not possible to delete a user because it is being used"
 msgid "It is not possible to delete the status because it is being used"
 msgstr "Удалить статус невозможно, так как он используется"
@@ -391,7 +389,6 @@ msgid "User successfully changed"
 msgstr "Пользователь успешно изменён"
 
 #: users/views.py:42
-#, fuzzy
 #| msgid "Registration"
 msgid "Register"
 msgstr "Зарегистрировать"

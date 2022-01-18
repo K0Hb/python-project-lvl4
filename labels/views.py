@@ -14,8 +14,8 @@ from django.utils.translation import gettext as _
 TAG_CREATE = _("The label was created successfully")
 TAG_EDIT = _("Label changed successfully")
 TAG_DEL = _("The label was successfully deleted")
-TAG_NOT_DEL = _("It is not possible to delete the label \
-    because it is being used")
+TAG_NOT_DEL = _(
+    "It is not possible to delete the label because it is being used")
 USER_NOT_LOG = _('You are not authenticated')
 
 
