@@ -7,8 +7,8 @@ class AuthenticationVerification:
 
     def handle_no_permission(self):
         if self.request.user.is_authenticated:
-            messages.error(self.message_not_authenticated, self.request)
+            messages.error(self.request, self.message_not_authenticated,)
             return redirect(self.redirect_url_not_authenticated)
         else:
-            messages.error(self.memessage_not_login, self.request)
+            messages.error(self.request, self.memessage_not_login)
             return redirect(self.login_url)

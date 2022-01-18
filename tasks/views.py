@@ -1,5 +1,5 @@
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import render, redirect
 from django.views import View
 from django_filters.views import FilterView
 
@@ -60,8 +60,8 @@ class UpdateTaskView(AuthenticationVerification, LoginRequiredMixin,
     memessage_not_login = USER_NOT_LOG
 
 
-class DeleteTaskView(AuthenticationVerification, LoginRequiredMixin,
-                     SuccessMessageMixin, UserPassesTestMixin,
+class DeleteTaskView(AuthenticationVerification,
+                     SuccessMessageMixin, LoginRequiredMixin,
                      DeleteView):
     model = Task
     success_url = reverse_lazy('tasks')
@@ -79,10 +79,14 @@ class DeleteTaskView(AuthenticationVerification, LoginRequiredMixin,
         )
         return super().delete(request, *args, **kwargs)
 
-    def test_func(self):
+    def get(self, request, pk):
         object = self.get_object()
-        print(f'creator {object.creator.pk} , user {self.request.user.pk})')
-        return object.creator.pk == self.request.user.pk
+        if self.request.user.pk != object.creator.pk:
+            messages.error(
+                self.request, self.message_not_authenticated,
+            )
+            return redirect(self.redirect_url_not_authenticated)
+        return super().get(request, pk)
 
 
 class TaskView(AuthenticationVerification, View):
